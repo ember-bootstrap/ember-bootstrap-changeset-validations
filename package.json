@@ -1,6 +1,6 @@
 {
   "name": "ember-bootstrap-changeset-validations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This Ember addon adds support for validations based on ember-changeset to ember-bootstrap",
   "directories": {
     "doc": "doc",
@@ -43,7 +43,9 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-bootstrap",
+    "ember-changeset"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
