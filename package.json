@@ -53,9 +53,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "after": "ember-bootstrap",
-    "versionCompatibility": {
-      "ember": ">=1.13.0"
-    }
+    "after": "ember-bootstrap"
   }
 }
