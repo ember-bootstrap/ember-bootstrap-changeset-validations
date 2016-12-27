@@ -33,8 +33,8 @@ test('valid validation is supported as expected', function(assert) {
   });
 
   this.render(hbs`
-    {{#bs-form model=(changeset model validation) action=(action "submitAction") invalid=(action "invalidAction")}}
-      {{bs-form-element label="Name" property="name"}}
+    {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
+      {{form.element label="Name" property="name"}}
     {{/bs-form}}
   `);
 
@@ -63,8 +63,8 @@ test('invalid validation is supported as expected', function(assert) {
   });
 
   this.render(hbs`
-    {{#bs-form model=(changeset model validation) action=(action "submitAction") invalid=(action "invalidAction")}}
-      {{bs-form-element label="Name" property="name"}}
+    {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
+      {{form.element label="Name" property="name"}}
     {{/bs-form}}
   `);
 

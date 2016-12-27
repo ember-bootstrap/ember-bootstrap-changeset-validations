@@ -9,7 +9,7 @@ further details.
 
 ## Installation
 
-`ember install ember-bootstrap-changeset-validations`
+    ember install ember-bootstrap-changeset-validations
 
 You should have installed the ember-bootstrap and ember-changeset addons already. If not install them:
 
@@ -24,6 +24,10 @@ if you do not have a custom validation implementation:
 ```
 ember install ember-changeset-validations
 ```
+
+If using ember-bootstrap 1.0 (alpha), install the corresponding version of this addon:
+
+    ember install ember-bootstrap-changeset-validations@1.0.0-alpha
 
 ## Usage
 

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import BsFormElement from 'ember-bootstrap/components/bs-form-element';
+import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 
 const { computed, defineProperty, A } = Ember;
 
