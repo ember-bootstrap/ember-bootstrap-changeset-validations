@@ -2,8 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-bootstrap-changeset-validations',
-  isDevelopingAddon: function() {
-    return true;
-  }
+  name: 'ember-bootstrap-changeset-validations'
 };
