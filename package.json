@@ -16,7 +16,7 @@
     "url": "http://github.com/kaliber5/ember-bootstrap-changeset-validations.git"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4.0.0"
   },
   "author": "Simon Ihmig <ihmig@kaliber5.de>",
   "license": "MIT",
