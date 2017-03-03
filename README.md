@@ -49,4 +49,4 @@ Then assign the changeset based on that to your form:
 
 ## Copyright and license
 
-Code and documentation copyright 2016 kaliber5 GmbH. Code released under [the MIT license](LICENSE.md).
+Code and documentation copyright 2017 kaliber5 GmbH. Code released under [the MIT license](LICENSE.md).
