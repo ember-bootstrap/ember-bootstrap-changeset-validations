@@ -1,5 +1,7 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 import {
@@ -7,69 +9,74 @@ import {
     validateLength
 } from 'ember-changeset-validations/validators';
 
-moduleForComponent('bs-form-element', 'Integration | Component | bs form element', {
-  integration: true
-});
+module('Integration | Component | bs form element', function(hooks) {
+  setupRenderingTest(hooks);
 
-const validation = {
-  name: [
-    validatePresence(true),
-    validateLength({ min: 4 })
-  ]
-};
-
-test('valid validation is supported as expected', function(assert) {
-  let model = Ember.Object.create({
-    name: '1234'
+  hooks.beforeEach(function() {
+    this.actions = {};
+    this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
   });
 
-  this.set('model', model);
-  this.set('validation', validation);
-  this.on('submitAction', function() {
-    assert.ok(true, 'submit action has been called.');
-  });
-  this.on('invalidAction', function() {
-    assert.ok(false, 'Invalid action must not been called.');
-  });
+  const validation = {
+    name: [
+      validatePresence(true),
+      validateLength({ min: 4 })
+    ]
+  };
 
-  this.render(hbs`
-    {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
-      {{form.element label="Name" property="name"}}
-    {{/bs-form}}
-  `);
+  test('valid validation is supported as expected', async function(assert) {
+    let model = EmberObject.create({
+      name: '1234'
+    });
 
-//  this.$('input').val('FooBar').change();
-  assert.expect(1);
+    this.set('model', model);
+    this.set('validation', validation);
+    this.actions.submitAction = function() {
+      assert.ok(true, 'submit action has been called.');
+    };
+    this.actions.invalidAction = function() {
+      assert.ok(false, 'Invalid action must not been called.');
+    };
 
-  this.$('form').submit();
-});
+    await render(hbs`
+      {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
+        {{form.element label="Name" property="name"}}
+      {{/bs-form}}
+    `);
 
-test('invalid validation is supported as expected', function(assert) {
-  let model = Ember.Object.create({
-    name: ''
-  });
+  //  this.$('input').val('FooBar').change();
+    assert.expect(1);
 
-  this.set('model', model);
-  this.set('validation', validation);
-  this.on('submitAction', function() {
-    assert.ok(false, 'submit action must not been called.');
-  });
-  this.on('invalidAction', function() {
-    assert.ok(true, 'Invalid action has been called.');
+    await triggerEvent('form', 'submit');
   });
 
-  this.on('validate', function() {
-    return 'invalid';
+  test('invalid validation is supported as expected', async function(assert) {
+    let model = EmberObject.create({
+      name: ''
+    });
+
+    this.set('model', model);
+    this.set('validation', validation);
+    this.actions.submitAction = function() {
+      assert.ok(false, 'submit action must not been called.');
+    };
+    this.actions.invalidAction = function() {
+      assert.ok(true, 'Invalid action has been called.');
+    };
+
+    this.actions.validate = function() {
+      return 'invalid';
+    };
+
+    await render(hbs`
+      {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
+        {{form.element label="Name" property="name"}}
+      {{/bs-form}}
+    `);
+
+    assert.expect(2);
+
+    await triggerEvent('form', 'submit');
+    assert.ok(find('.form-group').classList.contains('has-error'), 'form element group has error class');
   });
-
-  this.render(hbs`
-    {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
-      {{form.element label="Name" property="name"}}
-    {{/bs-form}}
-  `);
-
-  assert.expect(2);
-
-  this.$('form').submit();
-  assert.ok(this.$('.form-group').hasClass('has-error'), 'form element group has error class');
 });

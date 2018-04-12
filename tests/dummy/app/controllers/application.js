@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import EmberObject from '@ember/object';
 import Changeset from 'ember-changeset';
 import {
   validatePresence,
@@ -6,7 +7,7 @@ import {
 } from 'ember-changeset-validations/validators';
 import lookupValidator from 'ember-changeset-validations';
 
-const model = Ember.Object.extend({
+const model = EmberObject.extend({
   name: ''
 }).create();
 
@@ -17,7 +18,7 @@ const validation = {
   ]
 };
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   model,
   validation,

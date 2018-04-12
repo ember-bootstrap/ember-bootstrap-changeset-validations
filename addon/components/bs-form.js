@@ -1,16 +1,18 @@
-import Ember from 'ember';
+import { notEmpty } from '@ember/object/computed';
+import { assert } from '@ember/debug';
+import RSVP from 'rsvp';
+import { on } from '@ember/object/evented';
+import { observer } from '@ember/object';
 import BsForm from 'ember-bootstrap/components/bs-form';
-
-const { computed, RSVP, on, observer } = Ember;
 
 export default BsForm.extend({
   
-  hasValidator: computed.notEmpty('model.validate'),
+  hasValidator: notEmpty('model.validate'),
 
   validate(model) {
     let m = model;
 
-    Ember.assert('Model must be a Changeset instance', m && typeof m.validate === 'function');
+    assert('Model must be a Changeset instance', m && typeof m.validate === 'function');
     return m.get('isValid') ? RSVP.resolve() : RSVP.reject();
   },
 
