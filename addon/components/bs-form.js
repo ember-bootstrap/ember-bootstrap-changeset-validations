@@ -8,7 +8,7 @@ export default BsForm.extend({
   init() {
     this._super(...arguments);
 
-    this. _initValidation();
+    this._initValidation();
   },
 
   hasValidator: notEmpty('model.validate'),
