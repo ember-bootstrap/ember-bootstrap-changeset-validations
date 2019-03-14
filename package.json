@@ -25,14 +25,14 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-changeset-validations": "^1.2.5",
+    "ember-changeset-validations": "^2.1.0",
     "ember-cli-babel": "^6.6.0"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
-    "ember-bootstrap": "^1.2.2",
+    "ember-bootstrap": "^2.5.0",
     "ember-cli": "~3.1.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
@@ -56,7 +56,7 @@
     "loader.js": "^4.2.3"
   },
   "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
