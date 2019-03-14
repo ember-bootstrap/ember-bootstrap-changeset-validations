@@ -7,7 +7,15 @@ This way your forms are only submitted when the underlying data is valid, otherw
 markup will be applied. See the [FormElement documentation](http://kaliber5.github.io/ember-bootstrap/api/classes/Components.FormElement.html) for
 further details.
 
-## Installation
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+
+
+Installation
+------------------------------------------------------------------------------
 
     ember install ember-bootstrap-changeset-validations
 
@@ -46,6 +54,12 @@ Then assign the changeset based on that to your form:
 ## Authors
 
 [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
+
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## Copyright and license
 
