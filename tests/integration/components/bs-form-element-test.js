@@ -1,7 +1,6 @@
-import EmberObject from '@ember/object';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find, triggerEvent, fillIn, focus, blur } from '@ember/test-helpers';
+import { render, triggerEvent, fillIn, blur } from '@ember/test-helpers';
 
 import hbs from 'htmlbars-inline-precompile';
 
@@ -14,11 +13,6 @@ import {
 
 module('Integration | Component | bs form element', function(hooks) {
   setupRenderingTest(hooks);
-
-  hooks.beforeEach(function() {
-    this.actions = {};
-    this.send = (actionName, ...args) => this.actions[actionName].apply(this, args);
-  });
 
   const validation = {
     name: [
@@ -40,107 +34,98 @@ module('Integration | Component | bs form element', function(hooks) {
   }
 
   test('valid validation is supported as expected', async function(assert) {
-    let model = EmberObject.create({
-      name: '1234'
-    });
+    let model = {
+      name: '1234',
+    };
 
     this.set('model', model);
     this.set('validation', validation);
-    this.actions.submitAction = function() {
-      assert.ok(true, 'submit action has been called.');
+    this.submitAction = function() {
+      assert.step('submit action has been called.');
     };
-    this.actions.invalidAction = function() {
+    this.invalidAction = function() {
       assert.ok(false, 'Invalid action must not been called.');
     };
 
     await render(hbs`
-      {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
-        {{form.element label="Name" property="name"}}
-      {{/bs-form}}
+      <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
     `);
 
-  //  this.$('input').val('FooBar').change();
-    assert.expect(1);
-
     await triggerEvent('form', 'submit');
+    assert.verifySteps(['submit action has been called.']);
   });
 
   test('invalid validation is supported as expected', async function(assert) {
-    let model = EmberObject.create({
-      name: ''
-    });
+    let model = {
+      name: '',
+    };
 
     this.set('model', model);
     this.set('validation', validation);
-    this.actions.submitAction = function() {
+    this.submitAction = function() {
       assert.ok(false, 'submit action must not been called.');
     };
-    this.actions.invalidAction = function() {
-      assert.ok(true, 'Invalid action has been called.');
-    };
-
-    this.actions.validate = function() {
-      return 'invalid';
+    this.invalidAction = function() {
+      assert.step('Invalid action has been called.');
     };
 
     await render(hbs`
-      {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
-        {{form.element label="Name" property="name"}}
-      {{/bs-form}}
+      <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
     `);
 
-    assert.expect(2);
-
     await triggerEvent('form', 'submit');
-    assert.ok(find('.form-group').classList.contains('has-error'), 'form element group has error class');
+    assert.dom('input').hasClass('is-invalid', 'input has error class');
+    assert.verifySteps(['Invalid action has been called.']);
   });
 
 
   test('more complicated validations', async function(assert) {
-    let model = EmberObject.create({
+    let model = {
       name: '',
       password: null,
       passwordConfirmation: null,
-      email: ''
-    });
+      email: '',
+    };
 
     this.set('model', model);
     this.set('validation', extendedValidation);
-    this.actions.submitAction = function() {
+    this.submitAction = function() {
       assert.ok(false, 'submit action must not been called.');
     };
-    this.actions.invalidAction = function() {
-      assert.ok(true, 'Invalid action has been called.');
-    };
-
-    this.actions.validate = function() {
-      return 'invalid';
+    this.invalidAction = function() {
+      assert.step('Invalid action has been called.');
     };
 
     await render(hbs`
-      {{#bs-form model=(changeset model validation) onSubmit=(action "submitAction") onInvalid=(action "invalidAction") as |form|}}
-        {{form.element id="name" label="Name" property="name"}}
-        {{form.element id="email" label="Email" property="email"}}
-        {{form.element id="password" label="Password" property="password"}}
-        {{form.element id="password-confirmation" label="Password confirmation" property="passwordConfirmation"}}
-      {{/bs-form}}
+      <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
+        <form.element id="name" @label="Name" @property="name" />
+        <form.element id="email" @label="Email" @property="email" />
+        <form.element id="password" @label="Password" @property="password" />
+        <form.element id="password-confirmation" @label="Password confirmation" @property="passwordConfirmation" />
+      </BsForm>
     `);
 
-    assert.expect(6);
+    await fillIn('#password input', 'bad');
+    assert.dom('#password input').doesNotHaveClass('is-invalid', 'password does not have error while typing.');
+    assert.dom('#password input').doesNotHaveClass('is-valid', 'password does not have success while typing.');
 
-    await fillIn('#password-field', 'bad');
-    assert.notOk( find('#password').classList.contains('has-error'), 'password does not have error while typing.');
-    await blur('#password-field');
-    assert.ok( find('#password').classList.contains('has-error'), 'password does have error when focus out.');
+    await blur('#password input');
+    assert.dom('#password input').hasClass('is-invalid', 'password does have error when focus out.');
 
-    await fillIn('#password-confirmation-field', 'betterpass');
-    assert.notOk( find('#password-confirmation').classList.contains('has-error'), 'password confirmation does not have error while typing.');
-    await focus('#password-field');
-    assert.ok( find('#password-confirmation').classList.contains('has-error'), 'password confirmation does have error when focus out.');
+    await fillIn('#password-confirmation input', 'betterpass');
+    assert.dom('#password-confirmation input').doesNotHaveClass('is-invalid', 'password confirmation does not have error while typing.');
 
+    await blur('#password-confirmation input');
+    assert.dom('#password-confirmation input').hasClass('is-invalid', 'password confirmation does have error when focus out.');
 
     await triggerEvent('form', 'submit');
-    assert.ok(find('.form-group').classList.contains('has-error'), 'form element group has error class');
+    assert.dom('#password input').hasClass('is-invalid', 'password still has error after submit.');
+    assert.dom('#password-confirmation input').hasClass('is-invalid', 'password confirmation still has error after submit.');
+    assert.verifySteps(['Invalid action has been called.']);
   });
 
 });
