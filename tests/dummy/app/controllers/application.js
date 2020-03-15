@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import EmberObject from '@ember/object';
+import { action } from '@ember/object';
 import Changeset from 'ember-changeset';
 import {
   validatePresence,
@@ -7,34 +7,34 @@ import {
 } from 'ember-changeset-validations/validators';
 import lookupValidator from 'ember-changeset-validations';
 
-const model = EmberObject.extend({
-  name: ''
-}).create();
+class Model {
+  name = '';
+}
 
-const validation = {
+const Validation = {
   name: [
     validatePresence(true),
     validateLength({ min: 4 })
   ]
 };
 
-export default Controller.extend({
+export default class ApplicationController extends Controller {
+  changeset;
+  model = new Model();
 
-  model,
-  validation,
+  constructor() {
+    super(...arguments);
 
-  init() {
-    this._super(...arguments);
-    this.changeset = new Changeset(model, lookupValidator(validation), validation);
-  },
-
-  actions: {
-    submit() {
-      window.alert('Submitted!');
-    },
-    invalid() {
-      window.alert('Invalid!');
-    }
+    this.changeset = new Changeset(this.model, lookupValidator(Validation), Validation);
   }
 
-});
+  @action
+  submit() {
+    window.alert('Submitted!');
+  }
+
+  @action
+  invalid() {
+    window.alert('Invalid!');
+  }
+}

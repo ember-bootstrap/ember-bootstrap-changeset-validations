@@ -1,4 +1,4 @@
-{{#bs-form model=changeset action=(action "submit") invalid=(action "invalid")}}
-  {{bs-form-element label="Name" property="name"}}
-  {{bs-button type="primary" buttonType="submit" defaultText="Submit"}}
-{{/bs-form}}
+<BsForm @model={{this.changeset}} onSubmit={{this.submit}} onInvalid={{this.invalid}} as |form|>
+  <form.element @label="Name" @property="name" />
+  <BsButton @type="primary" @buttonType="submit" @defaultText="Submit" />
+</BsForm>
