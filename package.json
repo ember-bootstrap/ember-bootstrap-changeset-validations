@@ -26,7 +26,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-changeset-validations": "^2.1.0",
+    "ember-changeset-validations": "^3.0.0",
     "ember-cli-babel": "^7.17.2",
     "ember-cli-htmlbars": "^4.2.2"
   },
