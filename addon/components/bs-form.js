@@ -4,6 +4,7 @@ import RSVP from 'rsvp';
 import BsForm from 'ember-bootstrap/components/bs-form';
 
 export default BsForm.extend({
+  '__ember-bootstrap_subclass' : true,
 
   hasValidator: notEmpty('model.validate'),
 
