@@ -1,14 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, triggerEvent, fillIn, blur } from '@ember/test-helpers';
-
+import { render, triggerEvent, fillIn, focus, blur } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-
 import {
   validatePresence,
   validateLength,
-  validateConfirmation,
-  validateFormat,
 } from 'ember-changeset-validations/validators';
 
 module('Integration | Component | bs form element', function(hooks) {
@@ -21,19 +17,7 @@ module('Integration | Component | bs form element', function(hooks) {
     ]
   };
 
-  const extendedValidation = {
-    name: [
-      validatePresence(true),
-      validateLength({ min: 4 })
-    ],
-    email: validateFormat({ type: 'email', allowBlank: true }),
-    password: [
-      validateLength({ min: 6 })
-    ],
-    passwordConfirmation: validateConfirmation({ on: 'password' })
-  }
-
-  test('valid validation is supported as expected', async function(assert) {
+  test('form is submitted if valid and validation success shown', async function(assert) {
     let model = {
       name: '1234',
     };
@@ -93,6 +77,7 @@ module('Integration | Component | bs form element', function(hooks) {
     `);
     assert.dom('input').doesNotHaveClass('is-invalid');
 
+    await focus('input');
     await blur('input');
     assert.dom('input').hasClass('is-invalid');
   });
@@ -108,6 +93,7 @@ module('Integration | Component | bs form element', function(hooks) {
     `);
     assert.dom('input').doesNotHaveClass('is-valid');
 
+    await focus('input');
     await blur('input');
     assert.dom('input').hasClass('is-valid');
   });
@@ -124,8 +110,10 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-invalid');
 
     await fillIn('input', 'R');
+    assert.dom('input').doesNotHaveClass('is-invalid', 'validation is not shown while user is typing');
+
     await blur('input');
-    assert.dom('input').hasClass('is-invalid');
+    assert.dom('input').hasClass('is-invalid', 'validation error is shown after focus out');
   });
 
   test('validation success is shown after user input', async function(assert) {
@@ -140,53 +128,9 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-valid');
 
     await fillIn('input', 'Rosa');
+    assert.dom('input').doesNotHaveClass('is-valid', 'validation is not shown while user is typing');
+
     await blur('input');
-    assert.dom('input').hasClass('is-valid');
+    assert.dom('input').hasClass('is-valid', 'validation error is shown after focus out');
   });
-
-  test('more complicated validations', async function(assert) {
-    let model = {
-      name: '',
-      password: null,
-      passwordConfirmation: null,
-      email: '',
-    };
-
-    this.set('model', model);
-    this.set('validation', extendedValidation);
-    this.submitAction = function() {
-      assert.ok(false, 'submit action must not been called.');
-    };
-    this.invalidAction = function() {
-      assert.step('Invalid action has been called.');
-    };
-
-    await render(hbs`
-      <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
-        <form.element id="name" @label="Name" @property="name" />
-        <form.element id="email" @label="Email" @property="email" />
-        <form.element id="password" @label="Password" @property="password" />
-        <form.element id="password-confirmation" @label="Password confirmation" @property="passwordConfirmation" />
-      </BsForm>
-    `);
-
-    await fillIn('#password input', 'bad');
-    assert.dom('#password input').doesNotHaveClass('is-invalid', 'password does not have error while typing.');
-    assert.dom('#password input').doesNotHaveClass('is-valid', 'password does not have success while typing.');
-
-    await blur('#password input');
-    assert.dom('#password input').hasClass('is-invalid', 'password does have error when focus out.');
-
-    await fillIn('#password-confirmation input', 'betterpass');
-    assert.dom('#password-confirmation input').doesNotHaveClass('is-invalid', 'password confirmation does not have error while typing.');
-
-    await blur('#password-confirmation input');
-    assert.dom('#password-confirmation input').hasClass('is-invalid', 'password confirmation does have error when focus out.');
-
-    await triggerEvent('form', 'submit');
-    assert.dom('#password input').hasClass('is-invalid', 'password still has error after submit.');
-    assert.dom('#password-confirmation input').hasClass('is-invalid', 'password confirmation still has error after submit.');
-    assert.verifySteps(['Invalid action has been called.']);
-  });
-
 });
