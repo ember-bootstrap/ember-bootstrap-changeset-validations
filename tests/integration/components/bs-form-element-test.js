@@ -133,4 +133,54 @@ module('Integration | Component | bs form element', function(hooks) {
     await blur('input');
     assert.dom('input').hasClass('is-valid', 'validation error is shown after focus out');
   });
+
+  test('does not break forms which are not using a changeset as model', async function(assert) {
+    this.set('model', { name: '' });
+    this.set('submitAction', () => {
+      assert.step('submit action has been called');
+    });
+
+    await render(hbs`
+      <BsForm @model={{this.model}} @onSubmit={{this.submitAction}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await fillIn('input', 'Rosa');
+    await blur('input');
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await triggerEvent('form', 'submit');
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+    assert.verifySteps(['submit action has been called']);
+  });
+
+  test('does not break for forms which are not having a model at all', async function(assert) {
+    this.set('submitAction', () => {
+      assert.step('submit action has been called');
+    });
+    this.set('noop', () => {});
+
+    await render(hbs`
+      <BsForm @onSubmit={{this.submitAction}} as |form|>
+        <form.element @label="Name" @property="name" @onChange={{this.noop}} />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await fillIn('input', 'Rosa');
+    await blur('input');
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await triggerEvent('form', 'submit');
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
+    assert.verifySteps(['submit action has been called']);
+  });
 });

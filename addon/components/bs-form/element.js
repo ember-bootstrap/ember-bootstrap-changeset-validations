@@ -7,12 +7,12 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
 
   @dependentKeyCompat
   get errors() {
-    let error = this.model.error[this.property]?.validation;
+    let error = this.model?.error?.[this.property]?.validation;
     return error ? [error] : [];
   }
 
   get hasValidator() {
-    return typeof this.model.validate === 'function';
+    return typeof this.model?.validate === 'function';
   }
 
   // Ember Changeset does not validate the initial state. Properties are not
