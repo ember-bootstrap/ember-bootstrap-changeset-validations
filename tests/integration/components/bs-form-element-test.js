@@ -57,7 +57,7 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['submit action has been called.']);
   });
 
-  test('invalid validation is supported as expected', async function(assert) {
+  test('validation errors are shown on submit', async function(assert) {
     let model = {
       name: '',
     };
@@ -82,6 +82,67 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['Invalid action has been called.']);
   });
 
+  test('validation errors are shown after blur', async function(assert) {
+    this.set('model', { name: '' });
+    this.set('validation', validation);
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await blur('input');
+    assert.dom('input').hasClass('is-invalid');
+  });
+
+  test('validation success is shown after blur', async function(assert) {
+    this.set('model', { name: 'Clara' });
+    this.set('validation', validation);
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-valid');
+
+    await blur('input');
+    assert.dom('input').hasClass('is-valid');
+  });
+
+  test('validation errors are shown after user input', async function(assert) {
+    this.set('model', { name: '' });
+    this.set('validation', validation);
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-invalid');
+
+    await fillIn('input', 'R');
+    await blur('input');
+    assert.dom('input').hasClass('is-invalid');
+  });
+
+  test('validation success is shown after user input', async function(assert) {
+    this.set('model', { name: '' });
+    this.set('validation', validation);
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+    assert.dom('input').doesNotHaveClass('is-valid');
+
+    await fillIn('input', 'Rosa');
+    await blur('input');
+    assert.dom('input').hasClass('is-valid');
+  });
 
   test('more complicated validations', async function(assert) {
     let model = {
