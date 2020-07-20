@@ -4,6 +4,8 @@ import { A } from '@ember/array';
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 
 export default BsFormElement.extend({
+  '__ember-bootstrap_subclass' : true,
+
   hasValidator: notEmpty('model.validate'),
 
   setupValidations() {
