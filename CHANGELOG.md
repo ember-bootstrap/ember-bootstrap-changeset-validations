@@ -1,3 +1,13 @@
+## v3.1.0 (2020-07-20)
+
+#### :bug: Bug Fix
+* [#27](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/27) support latest version of ember-changeset / ember-changeset-validations ([@jelhan](https://github.com/jelhan))
+* [#25](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/25) hide deprecation notice when subclassing ember bootstrap classes ([@basz](https://github.com/basz))
+
+#### Committers: 2
+- Bas Kamer ([@basz](https://github.com/basz))
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v3.0.0 (2020-03-31)
 
 #### :boom: Breaking Change
