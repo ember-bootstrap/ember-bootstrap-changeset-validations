@@ -1,5 +1,5 @@
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
 import { dependentKeyCompat } from '@ember/object/compat';
 
 export default class BsFormElementWithChangesetValidationsSupport extends BsFormElement {
@@ -7,7 +7,7 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
 
   @dependentKeyCompat
   get errors() {
-    let error = this.model?.error?.[this.property]?.validation;
+    let error = get(this, `model.error.${this.property}.validation`);
     return error ? [error] : [];
   }
 
