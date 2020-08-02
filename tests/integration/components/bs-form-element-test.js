@@ -17,6 +17,15 @@ module('Integration | Component | bs form element', function(hooks) {
     ]
   };
 
+  const nestedValidation = {
+    nested: {
+      name: [
+        validatePresence(true),
+        validateLength({ min: 4 })
+      ]
+    }
+  };
+
   test('form is submitted if valid and validation success shown', async function(assert) {
     let model = {
       name: '1234',
@@ -58,6 +67,31 @@ module('Integration | Component | bs form element', function(hooks) {
     await render(hbs`
       <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
         <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+    assert.dom('input').hasClass('is-invalid', 'input has error class');
+    assert.verifySteps(['Invalid action has been called.']);
+  });
+
+  test('validation nested errors are shown on submit', async function(assert) {
+    let model = {
+      nested: { name: '' }
+    };
+
+    this.set('model', model);
+    this.set('validation', nestedValidation);
+    this.submitAction = function() {
+      assert.ok(false, 'submit action must not been called.');
+    };
+    this.invalidAction = function() {
+      assert.step('Invalid action has been called.');
+    };
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}} as |form|>
+        <form.element @label="Name" @property="nested.name" />
       </BsForm>
     `);
 
