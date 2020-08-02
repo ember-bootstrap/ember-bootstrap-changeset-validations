@@ -1,3 +1,11 @@
+## v3.1.1 (2020-08-02)
+
+#### :bug: Bug Fix
+* [#28](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/28) fix validation for nested properties ([@basz](https://github.com/basz))
+
+#### Committers: 1
+- Bas Kamer ([@basz](https://github.com/basz))
+
 ## v3.1.0 (2020-07-20)
 
 #### :bug: Bug Fix
