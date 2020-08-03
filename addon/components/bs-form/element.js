@@ -7,8 +7,8 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
 
   @dependentKeyCompat
   get errors() {
-    let error = get(this, `model.error.${this.property}.validation`);
-    return error ? [error] : [];
+    let errors = get(this, `model.error.${this.property}.validation`);
+    return errors ? errors : [];
   }
 
   get hasValidator() {
