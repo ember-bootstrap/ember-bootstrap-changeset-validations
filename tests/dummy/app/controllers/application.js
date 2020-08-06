@@ -1,21 +1,27 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import Changeset from 'ember-changeset';
-import {
-  validatePresence,
-  validateLength
-} from 'ember-changeset-validations/validators';
+import { validateLength, validatePresence } from 'ember-changeset-validations/validators';
 import lookupValidator from 'ember-changeset-validations';
 
 class Model {
   name = '';
+  nested = {
+    name: ''
+  }
 }
 
 const Validation = {
   name: [
     validatePresence(true),
     validateLength({ min: 4 })
-  ]
+  ],
+  nested: {
+    name: [
+      validatePresence(true),
+      validateLength({ min: 4 })
+    ]
+  }
 };
 
 export default class ApplicationController extends Controller {

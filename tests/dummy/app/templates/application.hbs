@@ -1,4 +1,5 @@
 <BsForm @model={{this.changeset}} onSubmit={{this.submit}} onInvalid={{this.invalid}} as |form|>
   <form.element @label="Name" @property="name" />
+  <form.element @label="Nested.Name" @property="nested.name" />
   <BsButton @type="primary" @buttonType="submit" @defaultText="Submit" />
 </BsForm>
