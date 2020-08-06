@@ -18,6 +18,10 @@ module('Integration | Component | bs form element', function(hooks) {
   };
 
   const nestedValidation = {
+    name: [
+      validatePresence(true),
+      validateLength({ min: 4 })
+    ],
     nested: {
       name: [
         validatePresence(true),
@@ -98,6 +102,42 @@ module('Integration | Component | bs form element', function(hooks) {
     await triggerEvent('form', 'submit');
     assert.dom('input').hasClass('is-invalid', 'input has error class');
     assert.verifySteps(['Invalid action has been called.']);
+  });
+
+  test('nested errors are shown after changes', async function(assert) {
+    let model = {
+      name: '',
+      nested: { name: '' }
+    };
+
+    this.set('model', model);
+    this.set('validation', nestedValidation);
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" as |element|>
+          <element.control data-control="name"/>
+        </form.element>
+        <form.element @label="Name" @property="nested.name" as |element|>
+          <element.control data-control="nested.name"/>
+        </form.element>
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+
+    assert.dom('[data-control="name"]').hasClass('is-invalid', 'control[name] has error class');
+    assert.dom('[data-control="nested.name"]').hasClass('is-invalid', 'control[nested.name] has error class');
+
+    await fillIn('[data-control="name"]', 'Some name');
+    await fillIn('[data-control="nested.name"]', 'Some name');
+    assert.dom('[data-control="name"]').hasClass('is-valid', 'control[name] has valid class');
+    assert.dom('[data-control="nested.name"]').hasClass('is-valid', 'control[nested.name] has valid class');
+
+    await fillIn('[data-control="name"]', '');
+    await fillIn('[data-control="nested.name"]', '');
+    assert.dom('[data-control="name"]').hasClass('is-invalid', 'control[name] has valid class');
+    assert.dom('[data-control="nested.name"]').hasClass('is-invalid', 'control[nested.name] has valid class');
   });
 
   test('validation errors are shown after blur', async function(assert) {
