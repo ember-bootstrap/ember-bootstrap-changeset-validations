@@ -1,3 +1,11 @@
+## v3.1.2 (2020-08-13)
+
+#### :bug: Bug Fix
+* [#29](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/29) support multiple validation errors ([@basz](https://github.com/basz))
+
+#### Committers: 1
+- Bas Kamer ([@basz](https://github.com/basz))
+
 ## v3.1.1 (2020-08-02)
 
 #### :bug: Bug Fix
