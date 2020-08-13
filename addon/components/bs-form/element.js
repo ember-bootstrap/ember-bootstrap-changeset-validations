@@ -1,14 +1,38 @@
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 import { action, get } from '@ember/object';
 import { dependentKeyCompat } from '@ember/object/compat';
+import { isNone, typeOf } from '@ember/utils';
 
 export default class BsFormElementWithChangesetValidationsSupport extends BsFormElement {
   '__ember-bootstrap_subclass' = true;
 
+  // We convert
+  //
+  // `model.error.${this.property}.validation` which could be either a string or an array
+  // see https://github.com/validated-changeset/validated-changeset/#error
+  //
+  // into
+  //
+  // Ember Bootstrap expects errors property of FormElement to be an array of validation messages:
+  // see https://www.ember-bootstrap.com/api/classes/Components.FormElement.html#property_errors
+  //
+  // If the if the property is valid but no validation is present `model.error.[this.property] could also be undefined.
   @dependentKeyCompat
   get errors() {
-    let error = get(this, `model.error.${this.property}.validation`);
-    return error ? [error] : [];
+    let errors = get(this, `model.error.${this.property}.validation`);
+
+    // no messages
+    if (isNone(errors)) {
+      return [];
+    }
+
+    // a single messages
+    if (typeOf(errors) === 'string') {
+      return [errors];
+    }
+
+    // assume it's an array of messages
+    return errors;
   }
 
   get hasValidator() {

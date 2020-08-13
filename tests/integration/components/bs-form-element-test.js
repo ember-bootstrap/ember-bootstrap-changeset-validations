@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, triggerEvent, fillIn, focus, blur } from '@ember/test-helpers';
+import { render, triggerEvent, fillIn, focus, blur, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   validatePresence,
@@ -213,8 +213,110 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-invalid');
 
     await triggerEvent('form', 'submit');
-    assert.dom('input').doesNotHaveClass('is-valid');
-    assert.dom('input').doesNotHaveClass('is-invalid');
+    assert.dom('input')
+      .doesNotHaveClass('is-valid');
+    assert.dom('input')
+      .doesNotHaveClass('is-invalid');
     assert.verifySteps(['submit action has been called']);
+  });
+
+  test('invalid-feedback is shown from single validation', async function (assert) {
+    let model = {
+      name: '',
+    };
+
+    this.set('model', model);
+    this.set('validation', {
+      name: validatePresence(true)
+    });
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+    assert.dom('.invalid-feedback')
+      .hasText('Name can\'t be blank');
+  });
+
+  test('invalid-feedback is shown in order from multiple validations', async function (assert) {
+    let model = {
+      name: '',
+    };
+
+    this.set('model', model);
+    this.set('validation', {
+      name: [
+        validatePresence(true),
+        validateLength({ min: 4 })
+      ]
+    });
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+    assert.dom('.invalid-feedback')
+      .hasText('Name can\'t be blank');
+
+    await fillIn('input', 'R');
+    await triggerEvent('form', 'submit');
+    assert.dom('.invalid-feedback')
+      .hasText('Name is too short (minimum is 4 characters)');
+  });
+
+  test('invalid-feedback is shown (multiple messages) in order from multiple validations', async function (assert) {
+    let model = {
+      name: '',
+    };
+
+    this.set('model', model);
+    this.set('validation', {
+      name: [
+        validatePresence(true),
+        validateLength({ min: 4 })
+      ]
+    });
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" @showMultipleErrors={{true}}/>
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+
+    let feedbackElements = findAll('.invalid-feedback');
+    let results = Array.from(feedbackElements, element => element.textContent.trim())
+    let expected = ["Name can't be blank", "Name is too short (minimum is 4 characters)"];
+
+    expected.forEach((message) => {
+      assert.ok(results.includes(message))
+    })
+  });
+
+  test('no feedback is shown for nonexistant validations', async function (assert) {
+    let model = {
+      name: '',
+    };
+
+    this.set('model', model);
+    this.set('validation', {
+      nombre: validatePresence(true)
+    });
+
+    await render(hbs`
+      <BsForm @model={{changeset this.model this.validation}} as |form|>
+        <form.element @label="Name" @property="name" />
+      </BsForm>
+    `);
+
+    await triggerEvent('form', 'submit');
+    assert.dom('.invalid-feedback').doesNotExist();
   });
 });
