@@ -4,7 +4,7 @@
 
 This Ember addon adds support for validations based on [ember-changeset](https://github.com/poteto/ember-changeset) to [ember-bootstrap](https://www.ember-bootstrap.com/) forms.
 This way your forms are only submitted when the underlying data is valid, otherwise the appropriate bootstrap error
-markup will be applied. See the [FormElement documentation](https://www.ember-bootstrap.com/api/classes/Components.FormElement.htmll) for
+markup will be applied. See the [FormElement documentation](https://www.ember-bootstrap.com/api/classes/Components.FormElement.html) for
 further details.
 
 Compatibility
