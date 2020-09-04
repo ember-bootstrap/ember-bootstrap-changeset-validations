@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/kaliber5/ember-bootstrap-changeset-validations.svg?branch=master)](https://travis-ci.org/kaliber5/ember-bootstrap-changeset-validations)
 
-This Ember addon adds support for validations based on [ember-changeset](https://github.com/poteto/ember-changeset) to [ember-bootstrap](http://kaliber5.github.io/ember-bootstrap/) forms.
+This Ember addon adds support for validations based on [ember-changeset](https://github.com/poteto/ember-changeset) to [ember-bootstrap](https://www.ember-bootstrap.com/) forms.
 This way your forms are only submitted when the underlying data is valid, otherwise the appropriate bootstrap error
-markup will be applied. See the [FormElement documentation](http://kaliber5.github.io/ember-bootstrap/api/classes/Components.FormElement.html) for
+markup will be applied. See the [FormElement documentation](https://www.ember-bootstrap.com/api/classes/Components.FormElement.htmll) for
 further details.
 
 Compatibility
@@ -36,27 +36,24 @@ if you do not have a custom validation implementation:
 ember install ember-changeset-validations
 ```
 
-If using ember-bootstrap 1.0 (alpha), install the corresponding version of this addon:
-
-    ember install ember-bootstrap-changeset-validations@1.0.0-alpha
-
 ## Usage
 
 Define your model and its validations as described in [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations/).
 Then assign the changeset based on that to your form:
 
 ```hbs
-{{#bs-form model=(changeset user userValidations)}}
-    {{bs-form-element label="Username" controlType="text" property="username" required=true}}
-    {{bs-form-element label="Email" controlType="email" property="email" required=true}}
-    {{bs-form-element label="Password" controlType="password" property="password" required=true}}
-    {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
-{{/bs-form}}
+<BsForm @model={{changeset this.user this.userValidations}} as |form|>
+  <form.element @label="Username" @controlType="text" @property="username" />
+  <form.element @label="Email" @controlType="email" @property="email" />
+  <form.element @label="Password" @controlType="password" @property="password" />
+  <form.submitButton>Submit</form.submitButton>
+</BsForm>
 ```
 
 ## Authors
 
-[Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
+* [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
+* [Jeldrik Hanschke](https://github.com/jelhan)
 
 
 Contributing
@@ -66,4 +63,4 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## Copyright and license
 
-Code and documentation copyright 2017 kaliber5 GmbH. Code released under [the MIT license](LICENSE.md).
+Code and documentation copyright 2017 kaliber5 GmbH and contributors. Code released under [the MIT license](LICENSE.md).
