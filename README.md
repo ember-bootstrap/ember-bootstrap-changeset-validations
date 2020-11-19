@@ -10,7 +10,7 @@ further details.
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember Bootstrap v3
+* Ember Bootstrap v4.5 or above
 * Ember Changeset and Ember Changeset Validations v3
 * Ember.js v3.16 or above
 * Ember CLI v2.13 or above
