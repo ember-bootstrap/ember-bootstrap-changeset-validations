@@ -1,25 +1,15 @@
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 import { action, get } from '@ember/object';
-import { dependentKeyCompat } from '@ember/object/compat';
 import { isNone, typeOf } from '@ember/utils';
 
 export default class BsFormElementWithChangesetValidationsSupport extends BsFormElement {
   '__ember-bootstrap_subclass' = true;
 
-  // We convert
-  //
-  // `model.error.${this.property}.validation` which could be either a string or an array
-  // see https://github.com/validated-changeset/validated-changeset/#error
-  //
-  // into
-  //
-  // Ember Bootstrap expects errors property of FormElement to be an array of validation messages:
-  // see https://www.ember-bootstrap.com/api/classes/Components.FormElement.html#property_errors
-  //
-  // If the if the property is valid but no validation is present `model.error.[this.property] could also be undefined.
-  @dependentKeyCompat
   get errors() {
-    let errors = get(this, `model.error.${this.property}.validation`);
+    let { model, property } = this.args;
+
+    // must use `get` method to support nested properties
+    let errors = get(model, `error.${property}.validation`);
 
     // no messages
     if (isNone(errors)) {
@@ -36,7 +26,7 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
   }
 
   get hasValidator() {
-    return typeof this.model?.validate === 'function';
+    return typeof this.args.model?.validate === 'function';
   }
 
   // Ember Changeset does not validate the initial state. Properties are not
@@ -71,10 +61,10 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
 
     // run initial validation if
     //   - visibility of validations changed
-    let canValidate = this.hasValidator && this.property;
+    let canValidate = this.hasValidator && this.args.property;
     let validationVisibilityChanged = !validationShowBefore && this.showOwnValidation;
     if (canValidate && validationVisibilityChanged) {
-      await this.model.validate(this.property);
+      await this.args.model.validate(this.args.property);
     }
   }
 }
