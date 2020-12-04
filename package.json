@@ -24,7 +24,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "test:ember": "ember test"
   },
   "dependencies": {
     "ember-changeset-validations": "^3.0.0",
