@@ -1,3 +1,22 @@
+## v4.0.0 (2020-12-04)
+
+#### :boom: Breaking Change
+* [#34](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/34) drop support for Ember Bootstrap <= v4.4 ([@jelhan](https://github.com/jelhan))
+
+#### :rocket: Enhancement
+* [#34](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/34) support Ember Bootstrap v4.5 and above ([@jelhan](https://github.com/jelhan))
+
+#### :memo: Documentation
+* [#31](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/31) use angle-bracket invocation in README and some other improvements ([@simonihmig](https://github.com/simonihmig))
+
+#### :house: Internal
+* [#35](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/35) migrate CI from TravisCI to GitHub actions ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 2
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
+
 ## v3.1.2 (2020-08-13)
 
 #### :bug: Bug Fix
