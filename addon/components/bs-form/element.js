@@ -62,7 +62,8 @@ export default class BsFormElementWithChangesetValidationsSupport extends BsForm
     // run initial validation if
     //   - visibility of validations changed
     let canValidate = this.hasValidator && this.args.property;
-    let validationVisibilityChanged = !validationShowBefore && this.showOwnValidation;
+    let validationVisibilityChanged =
+      !validationShowBefore && this.showOwnValidation;
     if (canValidate && validationVisibilityChanged) {
       await this.args.model.validate(this.args.property);
     }
