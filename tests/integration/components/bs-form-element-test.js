@@ -28,7 +28,7 @@ module('Integration | Component | bs form element', function (hooks) {
   };
 
   test('form is submitted if valid and validation success shown', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     let model = {
       name: '1234',
@@ -54,7 +54,7 @@ module('Integration | Component | bs form element', function (hooks) {
   });
 
   test('validation errors are shown on submit', async function (assert) {
-    assert.expect(1);
+    assert.expect(3);
 
     let model = {
       name: '',
@@ -81,7 +81,7 @@ module('Integration | Component | bs form element', function (hooks) {
   });
 
   test('validation nested errors are shown on submit', async function (assert) {
-    assert.expect(1);
+    assert.expect(3);
 
     let model = {
       nested: { name: '' },
