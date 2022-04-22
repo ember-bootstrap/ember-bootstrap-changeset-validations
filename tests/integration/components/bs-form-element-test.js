@@ -1,42 +1,45 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, triggerEvent, fillIn, focus, blur, findAll } from '@ember/test-helpers';
+import {
+  render,
+  triggerEvent,
+  fillIn,
+  focus,
+  blur,
+  findAll,
+} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   validatePresence,
   validateLength,
 } from 'ember-changeset-validations/validators';
 
-module('Integration | Component | bs form element', function(hooks) {
+module('Integration | Component | bs form element', function (hooks) {
   setupRenderingTest(hooks);
 
   const validation = {
-    name: [
-      validatePresence(true),
-      validateLength({ min: 4 })
-    ]
+    name: [validatePresence(true), validateLength({ min: 4 })],
   };
 
   const nestedValidation = {
     nested: {
-      name: [
-        validatePresence(true),
-        validateLength({ min: 4 })
-      ]
-    }
+      name: [validatePresence(true), validateLength({ min: 4 })],
+    },
   };
 
-  test('form is submitted if valid and validation success shown', async function(assert) {
+  test('form is submitted if valid and validation success shown', async function (assert) {
+    assert.expect(2);
+
     let model = {
       name: '1234',
     };
 
     this.set('model', model);
     this.set('validation', validation);
-    this.submitAction = function() {
+    this.submitAction = function () {
       assert.step('submit action has been called.');
     };
-    this.invalidAction = function() {
+    this.invalidAction = function () {
       assert.ok(false, 'Invalid action must not been called.');
     };
 
@@ -50,17 +53,19 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['submit action has been called.']);
   });
 
-  test('validation errors are shown on submit', async function(assert) {
+  test('validation errors are shown on submit', async function (assert) {
+    assert.expect(3);
+
     let model = {
       name: '',
     };
 
     this.set('model', model);
     this.set('validation', validation);
-    this.submitAction = function() {
+    this.submitAction = function () {
       assert.ok(false, 'submit action must not been called.');
     };
-    this.invalidAction = function() {
+    this.invalidAction = function () {
       assert.step('Invalid action has been called.');
     };
 
@@ -75,17 +80,19 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['Invalid action has been called.']);
   });
 
-  test('validation nested errors are shown on submit', async function(assert) {
+  test('validation nested errors are shown on submit', async function (assert) {
+    assert.expect(3);
+
     let model = {
-      nested: { name: '' }
+      nested: { name: '' },
     };
 
     this.set('model', model);
     this.set('validation', nestedValidation);
-    this.submitAction = function() {
+    this.submitAction = function () {
       assert.ok(false, 'submit action must not been called.');
     };
-    this.invalidAction = function() {
+    this.invalidAction = function () {
       assert.step('Invalid action has been called.');
     };
 
@@ -100,7 +107,7 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['Invalid action has been called.']);
   });
 
-  test('validation errors are shown after blur', async function(assert) {
+  test('validation errors are shown after blur', async function (assert) {
     this.set('model', { name: '' });
     this.set('validation', validation);
 
@@ -116,7 +123,7 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').hasClass('is-invalid');
   });
 
-  test('validation success is shown after blur', async function(assert) {
+  test('validation success is shown after blur', async function (assert) {
     this.set('model', { name: 'Clara' });
     this.set('validation', validation);
 
@@ -132,7 +139,7 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').hasClass('is-valid');
   });
 
-  test('validation errors are shown after user input', async function(assert) {
+  test('validation errors are shown after user input', async function (assert) {
     this.set('model', { name: '' });
     this.set('validation', validation);
 
@@ -144,13 +151,20 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-invalid');
 
     await fillIn('input', 'R');
-    assert.dom('input').doesNotHaveClass('is-invalid', 'validation is not shown while user is typing');
+    assert
+      .dom('input')
+      .doesNotHaveClass(
+        'is-invalid',
+        'validation is not shown while user is typing'
+      );
 
     await blur('input');
-    assert.dom('input').hasClass('is-invalid', 'validation error is shown after focus out');
+    assert
+      .dom('input')
+      .hasClass('is-invalid', 'validation error is shown after focus out');
   });
 
-  test('validation success is shown after user input', async function(assert) {
+  test('validation success is shown after user input', async function (assert) {
     this.set('model', { name: '' });
     this.set('validation', validation);
 
@@ -162,13 +176,20 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-valid');
 
     await fillIn('input', 'Rosa');
-    assert.dom('input').doesNotHaveClass('is-valid', 'validation is not shown while user is typing');
+    assert
+      .dom('input')
+      .doesNotHaveClass(
+        'is-valid',
+        'validation is not shown while user is typing'
+      );
 
     await blur('input');
-    assert.dom('input').hasClass('is-valid', 'validation error is shown after focus out');
+    assert
+      .dom('input')
+      .hasClass('is-valid', 'validation error is shown after focus out');
   });
 
-  test('does not break forms which are not using a changeset as model', async function(assert) {
+  test('does not break forms which are not using a changeset as model', async function (assert) {
     this.set('model', { name: '' });
     this.set('submitAction', () => {
       assert.step('submit action has been called');
@@ -193,7 +214,7 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.verifySteps(['submit action has been called']);
   });
 
-  test('does not break for forms which are not having a model at all', async function(assert) {
+  test('does not break for forms which are not having a model at all', async function (assert) {
     this.set('submitAction', () => {
       assert.step('submit action has been called');
     });
@@ -213,10 +234,8 @@ module('Integration | Component | bs form element', function(hooks) {
     assert.dom('input').doesNotHaveClass('is-invalid');
 
     await triggerEvent('form', 'submit');
-    assert.dom('input')
-      .doesNotHaveClass('is-valid');
-    assert.dom('input')
-      .doesNotHaveClass('is-invalid');
+    assert.dom('input').doesNotHaveClass('is-valid');
+    assert.dom('input').doesNotHaveClass('is-invalid');
     assert.verifySteps(['submit action has been called']);
   });
 
@@ -227,7 +246,7 @@ module('Integration | Component | bs form element', function(hooks) {
 
     this.set('model', model);
     this.set('validation', {
-      name: validatePresence(true)
+      name: validatePresence(true),
     });
 
     await render(hbs`
@@ -237,8 +256,7 @@ module('Integration | Component | bs form element', function(hooks) {
     `);
 
     await triggerEvent('form', 'submit');
-    assert.dom('.invalid-feedback')
-      .hasText('Name can\'t be blank');
+    assert.dom('.invalid-feedback').hasText("Name can't be blank");
   });
 
   test('invalid-feedback is shown in order from multiple validations', async function (assert) {
@@ -248,10 +266,7 @@ module('Integration | Component | bs form element', function(hooks) {
 
     this.set('model', model);
     this.set('validation', {
-      name: [
-        validatePresence(true),
-        validateLength({ min: 4 })
-      ]
+      name: [validatePresence(true), validateLength({ min: 4 })],
     });
 
     await render(hbs`
@@ -261,26 +276,25 @@ module('Integration | Component | bs form element', function(hooks) {
     `);
 
     await triggerEvent('form', 'submit');
-    assert.dom('.invalid-feedback')
-      .hasText('Name can\'t be blank');
+    assert.dom('.invalid-feedback').hasText("Name can't be blank");
 
     await fillIn('input', 'R');
     await triggerEvent('form', 'submit');
-    assert.dom('.invalid-feedback')
+    assert
+      .dom('.invalid-feedback')
       .hasText('Name is too short (minimum is 4 characters)');
   });
 
   test('invalid-feedback is shown (multiple messages) in order from multiple validations', async function (assert) {
+    assert.expect(2);
+
     let model = {
       name: '',
     };
 
     this.set('model', model);
     this.set('validation', {
-      name: [
-        validatePresence(true),
-        validateLength({ min: 4 })
-      ]
+      name: [validatePresence(true), validateLength({ min: 4 })],
     });
 
     await render(hbs`
@@ -292,12 +306,17 @@ module('Integration | Component | bs form element', function(hooks) {
     await triggerEvent('form', 'submit');
 
     let feedbackElements = findAll('.invalid-feedback');
-    let results = Array.from(feedbackElements, element => element.textContent.trim())
-    let expected = ["Name can't be blank", "Name is too short (minimum is 4 characters)"];
+    let results = Array.from(feedbackElements, (element) =>
+      element.textContent.trim()
+    );
+    let expected = [
+      "Name can't be blank",
+      'Name is too short (minimum is 4 characters)',
+    ];
 
     expected.forEach((message) => {
-      assert.ok(results.includes(message))
-    })
+      assert.ok(results.includes(message));
+    });
   });
 
   test('no feedback is shown for nonexistant validations', async function (assert) {
@@ -307,7 +326,7 @@ module('Integration | Component | bs form element', function(hooks) {
 
     this.set('model', model);
     this.set('validation', {
-      nombre: validatePresence(true)
+      nombre: validatePresence(true),
     });
 
     await render(hbs`

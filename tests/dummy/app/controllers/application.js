@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import Changeset from 'ember-changeset';
 import {
   validatePresence,
-  validateLength
+  validateLength,
 } from 'ember-changeset-validations/validators';
 import lookupValidator from 'ember-changeset-validations';
 
@@ -12,10 +12,7 @@ class Model {
 }
 
 const Validation = {
-  name: [
-    validatePresence(true),
-    validateLength({ min: 4 })
-  ]
+  name: [validatePresence(true), validateLength({ min: 4 })],
 };
 
 export default class ApplicationController extends Controller {
@@ -25,7 +22,11 @@ export default class ApplicationController extends Controller {
   constructor() {
     super(...arguments);
 
-    this.changeset = new Changeset(this.model, lookupValidator(Validation), Validation);
+    this.changeset = new Changeset(
+      this.model,
+      lookupValidator(Validation),
+      Validation
+    );
   }
 
   @action
