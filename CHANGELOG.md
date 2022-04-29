@@ -1,3 +1,16 @@
+## v5.0.0 (2022-04-29)
+
+#### :boom: Breaking Change
+* [#43](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/43) Drop support for ember-bootstrap v4 ([@simonihmig](https://github.com/simonihmig))
+* [#41](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/41) Update to Ember 4.2, drop support for Ember < 3.24, node 10, ember-changeset < 4 ([@simonihmig](https://github.com/simonihmig))
+
+#### :rocket: Enhancement
+* [#42](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/42) Convert extended Form to native class, providing compatibility with ember-bootstrap 5.1+ ([@simonihmig](https://github.com/simonihmig))
+* [#41](https://github.com/kaliber5/ember-bootstrap-changeset-validations/pull/41) Update to Ember 4.2, drop support for Ember < 3.24, node 10, ember-changeset < 4 ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v4.0.0 (2020-12-04)
 
 #### :boom: Breaking Change
