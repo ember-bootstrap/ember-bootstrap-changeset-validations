@@ -4593,10 +4593,10 @@ ember-auto-import@^1.11.3:
     walk-sync "^0.3.3"
     webpack "^4.43.0"
 
-ember-bootstrap@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-5.1.0.tgz#14c8603c87c9e1108811874ccbd2f65adcecf077"
-  integrity sha512-iIzn4iEY+fR+2gbVod+YFlrRDX2BeSFAOS7niIWHw02oQVxOd3Vjq9rH9f2F/FyZta/dDp5qf4mWlPsCXQg5XQ==
+ember-bootstrap@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-5.1.1.tgz#dfc9775eda7a8b1639445d6ec03baf9df7814681"
+  integrity sha512-ETb+DBYvVC+cAeABcfWUCHMHdO7S8gR8yZSvGmhHcgQo7jbKOVDDCARA7C12lmn3RojMwlfJMJu0LV3CXRwCHg==
   dependencies:
     "@ember/render-modifiers" "^2.0.0"
     "@embroider/macros" "^1.0.0"
