@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/kaliber5/ember-bootstrap-changeset-validations.git"
+    "url": "http://github.com/ember-bootstrap/ember-bootstrap-changeset-validations.git"
   },
   "license": "MIT",
   "author": "Simon Ihmig <ihmig@kaliber5.de>",
