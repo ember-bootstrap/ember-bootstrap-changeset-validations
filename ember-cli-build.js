@@ -6,7 +6,7 @@ module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
     'ember-bootstrap': {
-      bootstrapVersion: 4,
+      bootstrapVersion: 5,
       importBootstrapFont: false,
       importBootstrapCSS: true,
     },
