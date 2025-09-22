@@ -112,8 +112,8 @@ importers:
         specifier: 11.1.0
         version: 11.1.0(eslint@7.32.0)
       eslint-plugin-prettier:
-        specifier: 4.2.1
-        version: 4.2.1(eslint-config-prettier@8.5.0(eslint@7.32.0))(eslint@7.32.0)(prettier@2.7.1)
+        specifier: 4.2.5
+        version: 4.2.5(eslint-config-prettier@8.5.0(eslint@7.32.0))(eslint@7.32.0)(prettier@2.7.1)
       eslint-plugin-qunit:
         specifier: 7.3.1
         version: 7.3.1(eslint@7.32.0)
@@ -3107,8 +3107,8 @@ packages:
     peerDependencies:
       eslint: '>=5.16.0'
 
-  eslint-plugin-prettier@4.2.1:
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+  eslint-plugin-prettier@4.2.5:
+    resolution: {integrity: sha512-9Ni+xgemM2IWLq6aXEpP2+V/V30GeA/46Ar629vcMqVPodFFWC9skHu/D1phvuqtS8bJCFnNf01/qcmqYEwNfg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       eslint: '>=7.28.0'
@@ -11283,7 +11283,7 @@ snapshots:
       resolve: 1.22.10
       semver: 6.3.1
 
-  eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.5.0(eslint@7.32.0))(eslint@7.32.0)(prettier@2.7.1):
+  eslint-plugin-prettier@4.2.5(eslint-config-prettier@8.5.0(eslint@7.32.0))(eslint@7.32.0)(prettier@2.7.1):
     dependencies:
       eslint: 7.32.0
       prettier: 2.7.1
