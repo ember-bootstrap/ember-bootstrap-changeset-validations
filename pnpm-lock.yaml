@@ -55,8 +55,8 @@ importers:
         specifier: 4.5.0
         version: 4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7)
       ember-cli-dependency-checker:
-        specifier: 3.3.1
-        version: 3.3.1(ember-cli@4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7))
+        specifier: 3.3.3
+        version: 3.3.3(ember-cli@4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7))
       ember-cli-inject-live-reload:
         specifier: 2.1.0
         version: 2.1.0
@@ -2719,11 +2719,11 @@ packages:
   ember-cli-build-config-editor@0.5.1:
     resolution: {integrity: sha512-wNGVcpHbp6R+DeDHdpx+w4M+F+2cjaFDvf4ZV3VeIcHXLoxYlo0duXkbOLVKalHK/al6xO+rlZt5KqjK5Cyp0w==}
 
-  ember-cli-dependency-checker@3.3.1:
-    resolution: {integrity: sha512-Tg6OeijjXNKWkDm6057Tr0N9j9Vlz/ITewXWpn1A/+Wbt3EowBx5ZKfvoupqz05EznKgL1B/ecG0t+JN7Qm6MA==}
+  ember-cli-dependency-checker@3.3.3:
+    resolution: {integrity: sha512-mvp+HrE0M5Zhc2oW8cqs8wdhtqq0CfQXAYzaIstOzHJJn/U01NZEGu3hz7J7zl/+jxZkyygylzcS57QqmPXMuQ==}
     engines: {node: '>= 6'}
     peerDependencies:
-      ember-cli: ^3.2.0 || ^4.0.0
+      ember-cli: ^3.2.0 || >=4.0.0
 
   ember-cli-get-component-path-option@1.0.0:
     resolution: {integrity: sha512-k47TDwcJ2zPideBCZE8sCiShSxQSpebY2BHcX2DdipMmBox5gsfyVrbKJWIHeSTTKyEUgmBIvQkqTOozEziCZA==}
@@ -3381,9 +3381,6 @@ packages:
   find-up@6.3.0:
     resolution: {integrity: sha512-v2ZsoEuVHYy8ZIlYqwPe/39Cy+cFDzp4dXPaxNvkEuouymu+2Jbz0PxpKarJHYJTmv2HWT3O382qY8l4jMWthw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  find-yarn-workspace-root@1.2.1:
-    resolution: {integrity: sha512-dVtfb0WuQG+8Ag2uWkbG79hOUzEsRrhBzgfn86g2sJPkzmcpGdghbNTfUKGTxymFrY/tLIodDzLoW9nOJ4FY8Q==}
 
   find-yarn-workspace-root@2.0.0:
     resolution: {integrity: sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==}
@@ -10375,16 +10372,14 @@ snapshots:
     dependencies:
       recast: 0.12.9
 
-  ember-cli-dependency-checker@3.3.1(ember-cli@4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7)):
+  ember-cli-dependency-checker@3.3.3(ember-cli@4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7)):
     dependencies:
       chalk: 2.4.2
       ember-cli: 4.5.0(babel-core@6.26.3)(encoding@0.1.13)(handlebars@4.7.8)(underscore@1.13.7)
-      find-yarn-workspace-root: 1.2.1
+      find-yarn-workspace-root: 2.0.0
       is-git-url: 1.0.0
       resolve: 1.22.10
       semver: 5.7.2
-    transitivePeerDependencies:
-      - supports-color
 
   ember-cli-get-component-path-option@1.0.0: {}
 
@@ -11682,13 +11677,6 @@ snapshots:
     dependencies:
       locate-path: 7.2.0
       path-exists: 5.0.0
-
-  find-yarn-workspace-root@1.2.1:
-    dependencies:
-      fs-extra: 4.0.3
-      micromatch: 3.1.10
-    transitivePeerDependencies:
-      - supports-color
 
   find-yarn-workspace-root@2.0.0:
     dependencies:
