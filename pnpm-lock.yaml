@@ -73,8 +73,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       ember-focus-trap:
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.1.1
+        version: 1.1.1(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0))
       ember-load-initializers:
         specifier: 2.1.2
         version: 2.1.2(@babel/core@7.28.4)
@@ -2848,9 +2848,11 @@ packages:
     resolution: {integrity: sha512-B7wiurPgsxsSGzJuPFkpBWnaeuCu2PGpG2BjyrfA1VcL7//o+5RSnZqiCEY326y7qmxb2GoCgo0ft03KBU0rRw==}
     engines: {node: '>= 4'}
 
-  ember-focus-trap@1.0.2:
-    resolution: {integrity: sha512-/8Cx9KI7uqoMaNN4Iyxc24P2JIvAcCL3cI1tYdZRHTwTd1sG6esEZWOnpxZOSE7m4xHww8HVUSiXzgyqD8YIhA==}
+  ember-focus-trap@1.1.1:
+    resolution: {integrity: sha512-5tOWu6eV1UoNZE+P9Gl9lJXNrENZVCoOXi52ePb7JOrOZ3ckOk1OkPsFwR4Jym9VJ7vZ6S3Z3D8BrkFa2aCpYw==}
     engines: {node: 12.* || >= 14}
+    peerDependencies:
+      ember-source: '>= 4.0.0'
 
   ember-get-config@1.1.0:
     resolution: {integrity: sha512-diD+HwwY8QqpEk5DnDYfH7onYwl6NOgr1qv1ENbXih+/iiWYUVS/e0S/PlM7A4gdorD9spn1bnisnTLTf49Wpw==}
@@ -10299,7 +10301,7 @@ snapshots:
       ember-concurrency: 2.3.7(@babel/core@7.28.4)
       ember-decorators: 6.1.1
       ember-element-helper: 0.6.1(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0))
-      ember-focus-trap: 1.0.2
+      ember-focus-trap: 1.1.1(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0))
       ember-in-element-polyfill: 1.0.1
       ember-named-blocks-polyfill: 0.2.5
       ember-on-helper: 0.1.0
@@ -10800,9 +10802,10 @@ snapshots:
 
   ember-export-application-global@2.0.1: {}
 
-  ember-focus-trap@1.0.2:
+  ember-focus-trap@1.1.1(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0)):
     dependencies:
       '@embroider/addon-shim': 1.10.0
+      ember-source: 4.7.1(@babel/core@7.28.4)(webpack@5.94.0)
       focus-trap: 6.9.4
     transitivePeerDependencies:
       - supports-color
