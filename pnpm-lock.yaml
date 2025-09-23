@@ -40,8 +40,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-auto-import:
-        specifier: 2.4.3
-        version: 2.4.3(webpack@5.94.0)
+        specifier: 2.10.0
+        version: 2.10.0(webpack@5.94.0)
       ember-bootstrap:
         specifier: 5.1.1
         version: 5.1.1(@babel/core@7.28.4)(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0))(webpack@5.94.0)
@@ -788,6 +788,10 @@ packages:
     resolution: {integrity: sha512-N5Gho6Qk8z5u+mxLCcMYAoQMbN4MmH+z2jXwQHVs859bxuZTxwF6kKtsybDAASCtd2YGxEmzcc1Ja/wM28824w==}
     engines: {node: 12.* || 14.* || >= 16}
 
+  '@embroider/shared-internals@2.9.1':
+    resolution: {integrity: sha512-8PJBsa37GD++SAfHf8rcJzlwDwuAQCBo0fr+eGxg9l8XhBXsTnE/7706dM4OqWew9XNqRXn39wfIGHZoBpjNMw==}
+    engines: {node: 12.* || 14.* || >= 16}
+
   '@embroider/shared-internals@3.0.0':
     resolution: {integrity: sha512-5J5ipUMCAinQS38WW7wedruq5Z4VnHvNo+ZgOduw0PtI9w0CQWx7/HE+98PBDW8jclikeF+aHwF317vc1hwuzg==}
     engines: {node: 12.* || 14.* || >= 16}
@@ -1506,6 +1510,10 @@ packages:
 
   babel-import-util@1.4.1:
     resolution: {integrity: sha512-TNdiTQdPhXlx02pzG//UyVPSKE7SNWjY0n4So/ZnjQpWwaM5LvWBLkWa1JKll5u06HNscHD91XZPuwrMg1kadQ==}
+    engines: {node: '>= 12.*'}
+
+  babel-import-util@2.1.1:
+    resolution: {integrity: sha512-3qBQWRjzP9NreSH/YrOEU1Lj5F60+pWSLP0kIdCWxjFHH7pX2YPHIxQ67el4gnMNfYoDxSDGcT0zpVlZ+gVtQA==}
     engines: {node: '>= 12.*'}
 
   babel-import-util@3.0.1:
@@ -2680,8 +2688,8 @@ packages:
     resolution: {integrity: sha512-gLqML2k77AuUiXxWNon1FSzuG1DV7PEPpCLCU5aJvf6fdL6rmFfElsZRh+8ELEB/qP9dT+LHjNEunVzd2dYc8A==}
     engines: {node: '>= 10.*'}
 
-  ember-auto-import@2.4.3:
-    resolution: {integrity: sha512-yqtXDixgtBgaNIiz3DIIjJgpPoV5/UWBnsYIR/IxwDYpsGswyRWQ4D+IamkCDtaGDkZ7dNE9QZDBOrJCAG6KNA==}
+  ember-auto-import@2.10.0:
+    resolution: {integrity: sha512-bcBFDYVTFHyqyq8BNvsj6UO3pE6Uqou/cNmee0WaqBgZ+1nQqFz0UE26usrtnFAT+YaFZSkqF2H36QW84k0/cg==}
     engines: {node: 12.* || 14.* || >= 16}
 
   ember-bootstrap@5.1.1:
@@ -7781,6 +7789,23 @@ snapshots:
       semver: 7.7.2
       typescript-memoize: 1.1.1
 
+  '@embroider/shared-internals@2.9.1':
+    dependencies:
+      babel-import-util: 2.1.1
+      debug: 4.4.3
+      ember-rfc176-data: 0.3.18
+      fs-extra: 9.1.0
+      is-subdir: 1.2.0
+      js-string-escape: 1.0.1
+      lodash: 4.17.21
+      minimatch: 3.1.2
+      pkg-entry-points: 1.1.1
+      resolve-package-path: 4.0.3
+      semver: 7.7.2
+      typescript-memoize: 1.1.1
+    transitivePeerDependencies:
+      - supports-color
+
   '@embroider/shared-internals@3.0.0':
     dependencies:
       babel-import-util: 3.0.1
@@ -8702,6 +8727,8 @@ snapshots:
   babel-import-util@0.2.0: {}
 
   babel-import-util@1.4.1: {}
+
+  babel-import-util@2.1.1: {}
 
   babel-import-util@3.0.1: {}
 
@@ -10210,16 +10237,19 @@ snapshots:
       - webpack-cli
       - webpack-command
 
-  ember-auto-import@2.4.3(webpack@5.94.0):
+  ember-auto-import@2.10.0(webpack@5.94.0):
     dependencies:
       '@babel/core': 7.28.4
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.28.4)
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.4)
+      '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.4)
+      '@babel/plugin-transform-class-static-block': 7.28.3(@babel/core@7.28.4)
       '@babel/preset-env': 7.28.3(@babel/core@7.28.4)
       '@embroider/macros': 1.18.1
-      '@embroider/shared-internals': 1.8.3
+      '@embroider/shared-internals': 2.9.1
       babel-loader: 8.4.1(@babel/core@7.28.4)(webpack@5.94.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
+      babel-plugin-ember-template-compilation: 2.4.1
       babel-plugin-htmlbars-inline-precompile: 5.3.1
       babel-plugin-syntax-dynamic-import: 6.18.0
       broccoli-debug: 0.6.5
@@ -10232,10 +10262,13 @@ snapshots:
       fs-extra: 10.1.0
       fs-tree-diff: 2.0.1
       handlebars: 4.7.8
+      is-subdir: 1.2.0
       js-string-escape: 1.0.1
       lodash: 4.17.21
       mini-css-extract-plugin: 2.9.4(webpack@5.94.0)
+      minimatch: 3.1.2
       parse5: 6.0.1
+      pkg-entry-points: 1.1.1
       resolve: 1.22.10
       resolve-package-path: 4.0.3
       semver: 7.7.2
@@ -10258,7 +10291,7 @@ snapshots:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.4.3(webpack@5.94.0)
+      ember-auto-import: 2.10.0(webpack@5.94.0)
       ember-cli-babel: 7.26.11
       ember-cli-build-config-editor: 0.5.1
       ember-cli-htmlbars: 6.3.0
@@ -10300,7 +10333,7 @@ snapshots:
 
   ember-changeset-validations@4.0.0(webpack@5.94.0):
     dependencies:
-      ember-auto-import: 2.4.3(webpack@5.94.0)
+      ember-auto-import: 2.10.0(webpack@5.94.0)
       ember-cli-babel: 7.26.11
       ember-get-config: 1.1.0
       ember-validators: 4.1.2
@@ -10314,7 +10347,7 @@ snapshots:
     dependencies:
       '@embroider/macros': 1.18.1
       '@glimmer/tracking': 1.1.2
-      ember-auto-import: 2.4.3(webpack@5.94.0)
+      ember-auto-import: 2.10.0(webpack@5.94.0)
       ember-cli-babel: 7.26.11
       validated-changeset: 1.1.3
     transitivePeerDependencies:
@@ -10841,7 +10874,7 @@ snapshots:
   ember-popper-modifier@2.0.1(@babel/core@7.28.4)(webpack@5.94.0):
     dependencies:
       '@popperjs/core': 2.11.8
-      ember-auto-import: 2.4.3(webpack@5.94.0)
+      ember-auto-import: 2.10.0(webpack@5.94.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
       ember-modifier: 3.2.7(@babel/core@7.28.4)
@@ -10927,7 +10960,7 @@ snapshots:
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       chalk: 4.1.2
-      ember-auto-import: 2.4.3(webpack@5.94.0)
+      ember-auto-import: 2.10.0(webpack@5.94.0)
       ember-cli-babel: 7.26.11
       ember-cli-get-component-path-option: 1.0.0
       ember-cli-is-package-missing: 1.0.0
