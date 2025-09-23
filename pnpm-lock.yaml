@@ -85,8 +85,8 @@ importers:
         specifier: 5.1.5
         version: 5.1.5(@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.7.1(@babel/core@7.28.4)(webpack@5.94.0)))(qunit@2.19.4)
       ember-resolver:
-        specifier: 8.0.3
-        version: 8.0.3(@babel/core@7.28.4)
+        specifier: 8.1.0
+        version: 8.1.0(@babel/core@7.28.4)
       ember-source:
         specifier: 4.7.1
         version: 4.7.1(@babel/core@7.28.4)(webpack@5.94.0)
@@ -2914,8 +2914,8 @@ packages:
     resolution: {integrity: sha512-LbsUQRGcR4z9zQPdZsP5+ODU76xzbC9O97+1/ceDJPd5y0FqL9aFOWfSiqL3nEgcf93WW3im8MEVRzFWxz0Hzg==}
     engines: {node: 8.* || >= 10.*}
 
-  ember-resolver@8.0.3:
-    resolution: {integrity: sha512-fA53fxfG821BRqNiB9mQDuzZpzSRcSAYZTYBlRQOHsJwoYdjyE7idz4YcytbSsa409G5J2kP6B+PiKOBh0odlw==}
+  ember-resolver@8.1.0:
+    resolution: {integrity: sha512-MGD7X2ztZVswGqs1mLgzhZJRhG7XiF6Mg4DgC7xJFWRYQQUHyGJpGdNWY9nXyrYnRIsCrQoL1do41zpxbrB/cg==}
     engines: {node: '>= 10.*'}
 
   ember-rfc176-data@0.3.18:
@@ -10983,7 +10983,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-resolver@8.0.3(@babel/core@7.28.4):
+  ember-resolver@8.1.0(@babel/core@7.28.4):
     dependencies:
       babel-plugin-debug-macros: 0.3.4(@babel/core@7.28.4)
       broccoli-funnel: 3.0.8
