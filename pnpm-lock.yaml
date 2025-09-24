@@ -16,16 +16,16 @@ importers:
         version: 6.3.0
     devDependencies:
       '@babel/eslint-parser':
-        specifier: ^7.21.3
+        specifier: 7.28.4
         version: 7.28.4(@babel/core@7.28.4)(eslint@8.37.0)
       '@babel/plugin-proposal-decorators':
-        specifier: ^7.21.0
+        specifier: 7.28.0
         version: 7.28.0(@babel/core@7.28.4)
       '@ember/optional-features':
         specifier: 2.2.0
         version: 2.2.0
       '@ember/string':
-        specifier: ^3.0.1
+        specifier: 3.1.1
         version: 3.1.1
       '@ember/test-helpers':
         specifier: 2.9.6
@@ -46,7 +46,7 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       concurrently:
-        specifier: ^8.0.1
+        specifier: 8.2.2
         version: 8.2.2
       ember-auto-import:
         specifier: 2.10.1
@@ -97,7 +97,7 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(encoding@0.1.13)
       ember-template-lint:
-        specifier: ^6.0.0
+        specifier: 6.1.0
         version: 6.1.0
       ember-try:
         specifier: 2.0.0
@@ -112,7 +112,7 @@ importers:
         specifier: 11.5.0
         version: 11.5.0(eslint@8.37.0)
       eslint-plugin-n:
-        specifier: ^15.7.0
+        specifier: 15.7.0
         version: 15.7.0(eslint@8.37.0)
       eslint-plugin-prettier:
         specifier: 4.2.5
@@ -139,13 +139,13 @@ importers:
         specifier: 3.1.0
         version: 3.1.0(release-it@14.14.3(encoding@0.1.13))
       stylelint:
-        specifier: ^15.4.0
+        specifier: 15.11.0
         version: 15.11.0
       stylelint-config-standard:
-        specifier: ^32.0.0
+        specifier: 32.0.0
         version: 32.0.0(stylelint@15.11.0)
       stylelint-prettier:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0(prettier@2.8.8)(stylelint@15.11.0)
       webpack:
         specifier: 5.101.3
