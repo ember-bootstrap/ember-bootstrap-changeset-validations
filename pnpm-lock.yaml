@@ -58,8 +58,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(webpack@5.101.3)
       ember-changeset-validations:
-        specifier: 4.0.0
-        version: 4.0.0(webpack@5.101.3)
+        specifier: 5.0.0
+        version: 5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
       ember-cli:
         specifier: 4.12.3
         version: 4.12.3(@types/node@24.5.2)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
@@ -1152,6 +1152,9 @@ packages:
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
+
+  '@ungap/structured-clone@0.3.4':
+    resolution: {integrity: sha512-TSVh8CpnwNAsPC5wXcIyh92Bv1gq6E9cNDeeLu7Z4h8V4/qWtXJp7y42qljRkqcpmsve1iozwv1wr+3BNdILCg==}
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -2498,6 +2501,9 @@ packages:
     resolution: {integrity: sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==}
     engines: {node: '>=4'}
 
+  decorator-transforms@2.3.0:
+    resolution: {integrity: sha512-jo8c1ss9yFPudHuYYcrJ9jpkDZIoi+lOGvt+Uyp9B+dz32i50icRMx9Bfa8hEt7TnX1FyKWKkjV+cUdT/ep2kA==}
+
   deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
@@ -2627,9 +2633,11 @@ packages:
     resolution: {integrity: sha512-hSPcvIKarA8wad2/b6jDd/eU+OtKmi6uP+iYQbzi5TQpjsqV6b4QdRqrLk7ClSRRKBAtdTuutx+m+X+WlEd2lw==}
     engines: {node: 10.* || >= 12}
 
-  ember-changeset-validations@4.0.0:
-    resolution: {integrity: sha512-yEyLZtot5rcwrdOlSIy59eZN2k8THil5FQf2XnXENocJA3uAtQUqIbBrLqyvZroIzV63/uNZf5If1ZH6+M+Ahw==}
-    engines: {node: 12.* || 14.* || >= 16}
+  ember-changeset-validations@5.0.0:
+    resolution: {integrity: sha512-6zpYLtU3iwU7sEdW7hIlu33v1I4MF/p+8US2Zqctzj7veJyk/aSEJiQn/jfQsIQtXqun+bCVNJxSjk5/VwPbaA==}
+    peerDependencies:
+      '@ember/string': ^3.0.0 || ^4.0.0
+      ember-source: '>= 4.8.0'
 
   ember-changeset@4.0.0:
     resolution: {integrity: sha512-TsI6DHS2Bq0jfnxzzpNQtR6jRdneB0ObHLUHhCc44BZ/riijGWdMxwO4VhGfuSWJFUxCxoPNV/qvUp6ughSS4w==}
@@ -2771,10 +2779,6 @@ packages:
     peerDependencies:
       ember-source: '>= 4.0.0'
 
-  ember-get-config@1.1.0:
-    resolution: {integrity: sha512-diD+HwwY8QqpEk5DnDYfH7onYwl6NOgr1qv1ENbXih+/iiWYUVS/e0S/PlM7A4gdorD9spn1bnisnTLTf49Wpw==}
-    engines: {node: 12.* || 14.* || >= 16}
-
   ember-in-element-polyfill@1.0.1:
     resolution: {integrity: sha512-eHs+7D7PuQr8a1DPqsJTsEyo3FZ1XuH6WEZaEBPDa9s0xLlwByCNKl8hi1EbXOgvgEZNHHi9Rh0vjxyfakrlgg==}
     engines: {node: 10.* || >= 12}
@@ -2877,9 +2881,10 @@ packages:
     resolution: {integrity: sha512-2N7Vic45sbAegA5fhdfDjVbEVS4r+ze+tTQs2/wkY+8fC5yAGHfCM5ocyoTfBN5m7EhznC3AyMsOy4hLPzHFSQ==}
     engines: {node: 10.* || 12.* || >= 14.*}
 
-  ember-validators@4.1.2:
-    resolution: {integrity: sha512-aNyJW52eWvWhdcRfnb0pGYSDuQU4i4XjA682aDG1ocmz7eUEDw7bXXvKEYGtVsPTtPLtUPvTtaH9mXKpMG+1xA==}
-    engines: {node: 12.* || 14.* || >= 16}
+  ember-validators@5.0.0:
+    resolution: {integrity: sha512-lvdPxRmHNqVvdG+AGq2b3NOe1etgbfkeYt//NSQZ/Ixmb0EBm3qUNzyyfBk3jlEH0kCcGbBzmGBaxehwUphZYg==}
+    peerDependencies:
+      ember-source: '>= 4.8.0'
 
   emoji-regex@7.0.3:
     resolution: {integrity: sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==}
@@ -6506,6 +6511,9 @@ packages:
   validated-changeset@1.1.3:
     resolution: {integrity: sha512-yj+UOz1w7POS/4/No+NamkgLVcmuuP6ehjajVQlepOyHZo1p1/OXnvyjPXYYLIvEgRWaAoGb+dg0O9cPWHmH2Q==}
 
+  validated-changeset@1.4.1:
+    resolution: {integrity: sha512-GPs6R5bBGP8aY+QIYaDKeO1jJvYzaUhOuZiO6nczUS7MFlgV5oOBq21ShDVrpn28308/6h2fYfC9voJKl4eMtQ==}
+
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -8066,6 +8074,8 @@ snapshots:
   '@types/symlink-or-copy@1.2.2': {}
 
   '@types/unist@2.0.11': {}
+
+  '@ungap/structured-clone@0.3.4': {}
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -9666,6 +9676,13 @@ snapshots:
     dependencies:
       mimic-response: 1.0.1
 
+  decorator-transforms@2.3.0(@babel/core@7.28.4):
+    dependencies:
+      '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.28.4)
+      babel-import-util: 3.0.1
+    transitivePeerDependencies:
+      - '@babel/core'
+
   deep-extend@0.6.0: {}
 
   deep-is@0.1.4: {}
@@ -9863,17 +9880,18 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-changeset-validations@4.0.0(webpack@5.101.3):
+  ember-changeset-validations@5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)):
     dependencies:
-      ember-auto-import: 2.10.1(webpack@5.101.3)
-      ember-cli-babel: 7.26.11
-      ember-get-config: 1.1.0
-      ember-validators: 4.1.2
-      validated-changeset: 1.1.3
+      '@ember/string': 3.1.1
+      '@embroider/addon-shim': 1.10.0
+      '@embroider/macros': 1.18.1
+      ember-source: 4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)
+      ember-validators: 5.0.0(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
+      validated-changeset: 1.4.1
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
-      - webpack
 
   ember-changeset@4.0.0(webpack@5.101.3):
     dependencies:
@@ -10337,14 +10355,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-get-config@1.1.0:
-    dependencies:
-      '@embroider/macros': 1.18.1
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - '@glint/template'
-      - supports-color
-
   ember-in-element-polyfill@1.0.1:
     dependencies:
       debug: 4.4.3
@@ -10597,11 +10607,14 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-validators@4.1.2:
+  ember-validators@5.0.0(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)):
     dependencies:
+      '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.18.1
-      ember-cli-babel: 7.26.11
+      decorator-transforms: 2.3.0(@babel/core@7.28.4)
+      ember-source: 4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
 
@@ -14916,6 +14929,10 @@ snapshots:
       semver: 7.7.2
 
   validated-changeset@1.1.3: {}
+
+  validated-changeset@1.4.1:
+    dependencies:
+      '@ungap/structured-clone': 0.3.4
 
   vary@1.1.2: {}
 
