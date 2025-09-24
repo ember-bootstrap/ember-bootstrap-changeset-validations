@@ -25,8 +25,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       '@ember/string':
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 4.0.1
+        version: 4.0.1
       '@ember/test-helpers':
         specifier: 2.9.6
         version: 2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
@@ -59,7 +59,7 @@ importers:
         version: 4.2.0(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))(webpack@5.101.3)
       ember-changeset-validations:
         specifier: 5.0.0
-        version: 5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
+        version: 5.0.0(@babel/core@7.28.4)(@ember/string@4.0.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
       ember-cli:
         specifier: 4.12.3
         version: 4.12.3(@types/node@24.5.2)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
@@ -776,9 +776,8 @@ packages:
       '@glint/template':
         optional: true
 
-  '@ember/string@3.1.1':
-    resolution: {integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==}
-    engines: {node: 12.* || 14.* || >= 16}
+  '@ember/string@4.0.1':
+    resolution: {integrity: sha512-VWeng8BSWrIsdPfffOQt/bKwNKJL7+37gPFh/6iZZ9bke+S83kKqkS30poo4bTGfRcMnvAE0ie7txom+iDu81Q==}
 
   '@ember/test-helpers@2.9.6':
     resolution: {integrity: sha512-wUBB8e5nF24XSkl0TlRhHLs+WSf6yHimxDzo7L+a5n7mN5/omEdRkXMlm1qEp8N4+GNWfJKPHg9JTTm+9DA6uw==}
@@ -7545,11 +7544,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@ember/string@3.1.1':
-    dependencies:
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
+  '@ember/string@4.0.1': {}
 
   '@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))':
     dependencies:
@@ -9882,9 +9877,9 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-changeset-validations@5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)):
+  ember-changeset-validations@5.0.0(@babel/core@7.28.4)(@ember/string@4.0.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)):
     dependencies:
-      '@ember/string': 3.1.1
+      '@ember/string': 4.0.1
       '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.18.1
       ember-source: 4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)
