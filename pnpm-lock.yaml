@@ -83,7 +83,7 @@ importers:
         version: 7.0.0
       ember-qunit:
         specifier: 5.1.5
-        version: 5.1.5(@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)))(qunit@2.19.4)
+        version: 5.1.5(@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)))(qunit@2.24.1)
       ember-resolver:
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.28.4)
@@ -127,8 +127,8 @@ importers:
         specifier: 2.8.8
         version: 2.8.8
       qunit:
-        specifier: 2.19.4
-        version: 2.19.4
+        specifier: 2.24.1
+        version: 2.24.1
       qunit-dom:
         specifier: 2.0.0
         version: 2.0.0
@@ -5549,8 +5549,8 @@ packages:
     resolution: {integrity: sha512-mElzLN99wYPOGekahqRA+mq7NcThXY9c+/tDkgJmT7W5LeZAFNyITr2rFKNnCbWLIhuLdFw88kCBMrJSfyBYpA==}
     engines: {node: 12.* || 14.* || >= 16.*}
 
-  qunit@2.19.4:
-    resolution: {integrity: sha512-aqUzzUeCqlleWYKlpgfdHHw9C6KxkB9H3wNfiBg5yHqQMzy0xw/pbCRHYFkjl8MsP/t8qkTQE+JTYL71azgiew==}
+  qunit@2.24.1:
+    resolution: {integrity: sha512-Eu0k/5JDjx0QnqxsE1WavnDNDgL1zgMZKsMw/AoAxnsl9p4RgyLODyo2N7abZY7CEAnvl5YUqFZdkImzbgXzSg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -10960,7 +10960,7 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-qunit@5.1.5(@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)))(qunit@2.19.4):
+  ember-qunit@5.1.5(@ember/test-helpers@2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)))(qunit@2.24.1):
     dependencies:
       '@ember/test-helpers': 2.9.6(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
       broccoli-funnel: 3.0.8
@@ -10969,7 +10969,7 @@ snapshots:
       ember-auto-import: 1.12.2
       ember-cli-babel: 7.26.11
       ember-cli-test-loader: 3.1.0
-      qunit: 2.19.4
+      qunit: 2.24.1
       resolve-package-path: 3.1.0
       silent-error: 1.1.1
       validate-peer-dependencies: 1.2.0
@@ -14193,7 +14193,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  qunit@2.19.4:
+  qunit@2.24.1:
     dependencies:
       commander: 7.2.0
       node-watch: 0.7.3
