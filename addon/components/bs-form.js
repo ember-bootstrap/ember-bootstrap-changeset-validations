@@ -13,7 +13,7 @@ export default class BsFormWithChangesetValidationsSupport extends BsForm {
 
     assert(
       'Model must be a Changeset instance',
-      m && typeof m.validate === 'function'
+      m && typeof m.validate === 'function',
     );
 
     await m.validate();
