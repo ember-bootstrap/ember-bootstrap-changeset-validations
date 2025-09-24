@@ -55,6 +55,15 @@ module.exports = async function () {
           },
         },
       },
+      {
+        name: 'ember-changeset-v4',
+        npm: {
+          devDependencies: {
+            'ember-changeset': '^4.2.0',
+            'ember-changeset-validations': '^4.2.0',
+          },
+        },
+      },
       embroiderSafe(),
       embroiderOptimized(),
     ],

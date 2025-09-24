@@ -70,6 +70,7 @@ jobs:
           # - ember-release
           # - ember-beta
           # - ember-canary
+          - ember-changeset-v4
           - embroider-safe
           - embroider-optimized
 
