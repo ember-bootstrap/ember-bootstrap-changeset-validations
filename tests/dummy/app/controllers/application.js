@@ -25,7 +25,7 @@ export default class ApplicationController extends Controller {
     this.changeset = new Changeset(
       this.model,
       lookupValidator(Validation),
-      Validation
+      Validation,
     );
   }
 

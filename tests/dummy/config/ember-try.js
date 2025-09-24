@@ -12,6 +12,8 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-bootstrap': '^5.0.0',
+            'ember-cli': '~4.12.0',
+            'ember-resolver': '^11.0.0',
             'ember-source': '~3.28.0',
           },
         },

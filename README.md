@@ -53,7 +53,6 @@ Then assign the changeset based on that to your form:
 * [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
 * [Jeldrik Hanschke](https://github.com/jelhan)
 
-
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
