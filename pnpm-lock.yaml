@@ -94,8 +94,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(encoding@0.1.13)
       ember-template-lint:
-        specifier: 4.14.0
-        version: 4.14.0
+        specifier: 4.18.2
+        version: 4.18.2
       ember-try:
         specifier: 2.0.0
         version: 2.0.0(encoding@0.1.13)
@@ -2944,8 +2944,8 @@ packages:
     resolution: {integrity: sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==}
     engines: {node: 12.* || >= 14}
 
-  ember-template-lint@4.14.0:
-    resolution: {integrity: sha512-kr7jvAx74y4CZxMJ+B8AYszYZjdyE0opSPo+6vLW43jKyq2oowjqPDEBd6upsUALvYtNAPn8b6D+Vbiy7UP+Kg==}
+  ember-template-lint@4.18.2:
+    resolution: {integrity: sha512-yI8kQ8IQ2x5HVq0tQAISXABOHr0Is5sAg6rwceO6M8CYozq7HMxUPEj0VbdcbyIE70SWw/8d24M1rBI4km544Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     hasBin: true
 
@@ -11071,7 +11071,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-template-lint@4.14.0:
+  ember-template-lint@4.18.2:
     dependencies:
       '@lint-todo/utils': 13.1.1
       aria-query: 5.3.2
