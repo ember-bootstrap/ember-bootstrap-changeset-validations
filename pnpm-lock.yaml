@@ -55,8 +55,8 @@ importers:
         specifier: 5.1.1
         version: 5.1.1(@babel/core@7.28.4)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))(webpack@5.101.3)
       ember-changeset:
-        specifier: 4.0.0
-        version: 4.0.0(webpack@5.101.3)
+        specifier: 4.2.0
+        version: 4.2.0(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))(webpack@5.101.3)
       ember-changeset-validations:
         specifier: 5.0.0
         version: 5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))
@@ -2639,11 +2639,12 @@ packages:
       '@ember/string': ^3.0.0 || ^4.0.0
       ember-source: '>= 4.8.0'
 
-  ember-changeset@4.0.0:
-    resolution: {integrity: sha512-TsI6DHS2Bq0jfnxzzpNQtR6jRdneB0ObHLUHhCc44BZ/riijGWdMxwO4VhGfuSWJFUxCxoPNV/qvUp6ughSS4w==}
-    engines: {node: 12.* || 14.* || >= 16}
+  ember-changeset@4.2.0:
+    resolution: {integrity: sha512-iC0ukWZXXR3te7hnHgggtItzLO1rYryjzSUMDX6yOCM1OyKDArFMnfhZh9DSqfiVPWQdpXhP9BYCHbU22NBTwA==}
+    engines: {node: 18.* || 20.* || >= 22}
     peerDependencies:
       ember-data: '*'
+      ember-source: '>=3.20.0'
     peerDependenciesMeta:
       ember-data:
         optional: true
@@ -6508,9 +6509,6 @@ packages:
     resolution: {integrity: sha512-8X1OWlERjiUY6P6tdeU9E0EwO8RA3bahoOVG7ulOZT5MqgNDUO/BQoVjYiHPcNe+v8glsboZRIw9iToMAA2zAA==}
     engines: {node: '>= 12'}
 
-  validated-changeset@1.1.3:
-    resolution: {integrity: sha512-yj+UOz1w7POS/4/No+NamkgLVcmuuP6ehjajVQlepOyHZo1p1/OXnvyjPXYYLIvEgRWaAoGb+dg0O9cPWHmH2Q==}
-
   validated-changeset@1.4.1:
     resolution: {integrity: sha512-GPs6R5bBGP8aY+QIYaDKeO1jJvYzaUhOuZiO6nczUS7MFlgV5oOBq21ShDVrpn28308/6h2fYfC9voJKl4eMtQ==}
 
@@ -9893,13 +9891,15 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  ember-changeset@4.0.0(webpack@5.101.3):
+  ember-changeset@4.2.0(ember-source@4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3))(webpack@5.101.3):
     dependencies:
+      '@babel/core': 7.28.4
       '@embroider/macros': 1.18.1
       '@glimmer/tracking': 1.1.2
       ember-auto-import: 2.10.1(webpack@5.101.3)
       ember-cli-babel: 7.26.11
-      validated-changeset: 1.1.3
+      ember-source: 4.12.4(@babel/core@7.28.4)(@glimmer/component@1.1.2(@babel/core@7.28.4))(webpack@5.101.3)
+      validated-changeset: 1.4.1
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -14927,8 +14927,6 @@ snapshots:
     dependencies:
       resolve-package-path: 4.0.3
       semver: 7.7.2
-
-  validated-changeset@1.1.3: {}
 
   validated-changeset@1.4.1:
     dependencies:
