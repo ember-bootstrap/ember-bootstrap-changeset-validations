@@ -1,4 +1,4 @@
-# Ember-bootstrap-changeset-validations
+# Ember Bootstrap Changeset Validations
 
 [![Build Status](https://travis-ci.org/kaliber5/ember-bootstrap-changeset-validations.svg?branch=master)](https://travis-ci.org/kaliber5/ember-bootstrap-changeset-validations)
 
@@ -7,8 +7,7 @@ This way your forms are only submitted when the underlying data is valid, otherw
 markup will be applied. See the [FormElement documentation](https://www.ember-bootstrap.com/api/classes/Components.FormElement.html) for
 further details.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
 * Ember Bootstrap v5 or above
 * Ember Changeset and Ember Changeset Validations v4
@@ -17,8 +16,7 @@ Compatibility
 * Node.js v20 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
     ember install ember-bootstrap-changeset-validations
 
@@ -56,8 +54,7 @@ Then assign the changeset based on that to your form:
 * [Jeldrik Hanschke](https://github.com/jelhan)
 
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
