@@ -92,6 +92,8 @@
     "webpack": "5.101.3"
   },
   "peerDependencies": {
+    "ember-bootstrap": ">=5.0.0",
+    "ember-changeset-validations": ">=4.0.0",
     "ember-source": ">=3.28.0"
   },
   "engines": {
