@@ -1,4 +1,9 @@
-<BsForm @model={{this.changeset}} onSubmit={{this.submit}} onInvalid={{this.invalid}} as |form|>
+<BsForm
+  @model={{this.changeset}}
+  onSubmit={{this.submit}}
+  onInvalid={{this.invalid}}
+  as |form|
+>
   <form.element @label="Name" @property="name" />
   <BsButton @type="primary" @buttonType="submit" @defaultText="Submit" />
 </BsForm>

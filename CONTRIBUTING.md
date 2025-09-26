@@ -2,14 +2,14 @@
 
 ## Installation
 
-* `git clone <repository-url>`
-* `cd my-addon`
-* `pnpm install`
+- `git clone <repository-url>`
+- `cd my-addon`
+- `pnpm install`
 
 ## Linting
 
-* `pnpm lint`
-* `pnpm lint:fix`
+- `pnpm lint`
+- `pnpm lint:fix`
 
 ## Running tests
 
