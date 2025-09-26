@@ -9,12 +9,11 @@ further details.
 
 ## Compatibility
 
-* Ember Bootstrap v5 or above
-* Ember Changeset and Ember Changeset Validations v4
-* Ember.js v3.28 or above
-* Ember CLI v3.28 or above
-* Node.js v20 or above
-
+- Ember Bootstrap v5 or above
+- Ember Changeset and Ember Changeset Validations v4
+- Ember.js v3.28 or above
+- Ember CLI v3.28 or above
+- Node.js v20 or above
 
 ## Installation
 
@@ -43,15 +42,19 @@ Then assign the changeset based on that to your form:
 <BsForm @model={{changeset this.user this.userValidations}} as |form|>
   <form.element @label="Username" @controlType="text" @property="username" />
   <form.element @label="Email" @controlType="email" @property="email" />
-  <form.element @label="Password" @controlType="password" @property="password" />
+  <form.element
+    @label="Password"
+    @controlType="password"
+    @property="password"
+  />
   <form.submitButton>Submit</form.submitButton>
 </BsForm>
 ```
 
 ## Authors
 
-* [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
-* [Jeldrik Hanschke](https://github.com/jelhan)
+- [Simon Ihmig](https://github.com/simonihmig) @ [kaliber5](http://www.kaliber5.de)
+- [Jeldrik Hanschke](https://github.com/jelhan)
 
 ## Contributing
 
