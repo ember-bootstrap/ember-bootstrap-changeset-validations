@@ -1,3 +1,24 @@
+
+## v6.0.0 (2025-09-30)
+
+#### :boom: Breaking Change
+* [#75](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/75) drop support for Ember < 3.28 and Ember classic ([@jelhan](https://github.com/jelhan))
+* [#74](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/74) drop support for Node < 20 ([@jelhan](https://github.com/jelhan))
+
+#### :rocket: Enhancement
+* [#109](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/109) declare Ember Bootstrap and Ember Changeset Validations compatbility per peer dependencies ([@jelhan](https://github.com/jelhan))
+
+#### :house: Internal
+* [#106](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/106) Upgrade with Ember CLI v6.4 blueprints ([@jelhan](https://github.com/jelhan))
+* [#91](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/91) Upgrade with Ember CLI v5.12 blueprints ([@jelhan](https://github.com/jelhan))
+* [#89](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/89) ensure test coverage with ember-changeset v4 ([@jelhan](https://github.com/jelhan))
+* [#86](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/86) Upgrade with Ember CLI 4.12 blueprints ([@jelhan](https://github.com/jelhan))
+* [#76](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/76) ensure test coverage with Ember 4.12 ([@jelhan](https://github.com/jelhan))
+* [#77](https://github.com/ember-bootstrap/ember-bootstrap-changeset-validations/pull/77) migrate to pnpm ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v5.0.0 (2022-04-29)
 
 #### :boom: Breaking Change
