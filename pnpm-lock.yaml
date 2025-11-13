@@ -67,8 +67,8 @@ importers:
         specifier: 2.11.2
         version: 2.11.2(webpack@5.102.1)
       ember-bootstrap:
-        specifier: 6.5.0
-        version: 6.5.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@glimmer/component@2.0.0)(@glimmer/tracking@1.1.2)(ember-modifier@4.2.2(@babel/core@7.28.5))(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.102.1)
+        specifier: 6.6.1
+        version: 6.6.1(@babel/core@7.28.5)(@ember/string@4.0.1)(@glimmer/component@2.0.0)(@glimmer/tracking@1.1.2)(ember-modifier@4.2.2(@babel/core@7.28.5))(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.102.1)
       ember-changeset:
         specifier: 5.0.0
         version: 5.0.0(@babel/core@7.28.5)(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -2753,8 +2753,8 @@ packages:
     resolution: {integrity: sha512-eR67ggmPQ6Upx6Smbur0HTRYqQshyxJMKPkWBHwWZmZ8sOA5piR0raL7ccKO0Hrn4ZEkp8ih24yAwvssb6K4NQ==}
     engines: {node: 12.* || 14.* || >= 16}
 
-  ember-bootstrap@6.5.0:
-    resolution: {integrity: sha512-qfuEjzVJL5PbTpHRlFQgFiEXbtJPrxqe1rdSxP/1OqhraJm5F2q1eB3K83685gz8wsQK1cEx9niYWt4jk4txEQ==}
+  ember-bootstrap@6.6.1:
+    resolution: {integrity: sha512-fmUygmIWhBRny2cPA3wokpXEZJNFGffmC6H0pFXByaP+d8S8Iw/yQppNsHzM2T3+zawnc7oUDs8EPA+3vRFoOw==}
     engines: {node: 18.* || >= 20}
     peerDependencies:
       '@glimmer/component': ^1.0.4
@@ -9753,7 +9753,7 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-bootstrap@6.5.0(@babel/core@7.28.5)(@ember/string@4.0.1)(@glimmer/component@2.0.0)(@glimmer/tracking@1.1.2)(ember-modifier@4.2.2(@babel/core@7.28.5))(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.102.1):
+  ember-bootstrap@6.6.1(@babel/core@7.28.5)(@ember/string@4.0.1)(@glimmer/component@2.0.0)(@glimmer/tracking@1.1.2)(ember-modifier@4.2.2(@babel/core@7.28.5))(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.102.1):
     dependencies:
       '@ember/render-modifiers': 3.0.0(ember-source@6.8.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@embroider/macros': 1.19.4
