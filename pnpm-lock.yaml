@@ -9,16 +9,16 @@ importers:
   .:
     dependencies:
       '@babel/core':
-        specifier: ^7.27.1
+        specifier: ^7.29.0
         version: 7.29.7(supports-color@10.2.2)
       ember-cli-babel:
-        specifier: ^8.2.0
+        specifier: ^8.3.1
         version: 8.3.2(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       ember-cli-htmlbars:
-        specifier: ^7.0.0
+        specifier: ^7.0.1
         version: 7.0.1(@babel/core@7.29.7(supports-color@10.2.2))(ember-source@6.12.0(@glimmer/component@2.1.1(supports-color@10.2.2))(rsvp@4.8.5)(supports-color@10.2.2))(supports-color@10.2.2)
       ember-template-imports:
-        specifier: ^4.3.0
+        specifier: ^4.4.0
         version: 4.4.0(supports-color@10.2.2)
     devDependencies:
       '@babel/eslint-parser':
@@ -82,8 +82,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(supports-color@10.2.2)
       ember-cli-dependency-checker:
-        specifier: 3.3.3
-        version: 3.3.3(ember-cli@6.12.0(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@26.6.2)(debug@4.4.3(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8))
+        specifier: 3.4.0
+        version: 3.4.0(@babel/core@7.29.7(supports-color@10.2.2))(ember-cli@6.12.0(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@26.6.2)(debug@4.4.3(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8))(eslint@9.39.4(jiti@2.7.0)(supports-color@10.2.2))
       ember-cli-deprecation-workflow:
         specifier: 4.0.1
         version: 4.0.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
@@ -2788,9 +2788,9 @@ packages:
     resolution: {integrity: sha512-BbveJCyRvzzkaTH1llLW+MpHe/yzA5zpHOpMIg2vp/3JD9mban9zUm7lphaB0TSpPuMuby9rAhTI8pgXq0ifIA==}
     engines: {node: 16.* || >= 18}
 
-  ember-cli-dependency-checker@3.3.3:
-    resolution: {integrity: sha512-mvp+HrE0M5Zhc2oW8cqs8wdhtqq0CfQXAYzaIstOzHJJn/U01NZEGu3hz7J7zl/+jxZkyygylzcS57QqmPXMuQ==}
-    engines: {node: '>= 6'}
+  ember-cli-dependency-checker@3.4.0:
+    resolution: {integrity: sha512-hlQRRCz2W2ZVg1l2Lz7zO0vfeYEXOYVc6hI1CUoy8mBvETauPtvo3Pi+CECUOa2kjXjyuNtclPc3ged6kNMumw==}
+    engines: {node: '>= 20'}
     peerDependencies:
       ember-cli: ^3.2.0 || >=4.0.0
 
@@ -9614,14 +9614,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-dependency-checker@3.3.3(ember-cli@6.12.0(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@26.6.2)(debug@4.4.3(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)):
+  ember-cli-dependency-checker@3.4.0(@babel/core@7.29.7(supports-color@10.2.2))(ember-cli@6.12.0(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@26.6.2)(debug@4.4.3(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8))(eslint@9.39.4(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
-      chalk: 2.4.2
+      '@babel/eslint-parser': 7.28.6(@babel/core@7.29.7(supports-color@10.2.2))(eslint@9.39.4(jiti@2.7.0)(supports-color@10.2.2))
+      chalk: 4.1.2
       ember-cli: 6.12.0(@babel/core@7.29.7(supports-color@10.2.2))(@types/node@26.6.2)(debug@4.4.3(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       find-yarn-workspace-root: 2.0.0
       is-git-url: 1.0.0
       resolve: 1.22.12
-      semver: 5.7.2
+      semver: 7.8.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - eslint
 
   ember-cli-deprecation-workflow@4.0.1(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
