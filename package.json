@@ -54,7 +54,7 @@
     "@release-it-plugins/lerna-changelog": "8.0.1",
     "bootstrap": "5.3.8",
     "broccoli-asset-rev": "3.0.0",
-    "concurrently": "9.2.1",
+    "concurrently": "9.2.4",
     "ember-auto-import": "2.13.1",
     "ember-bootstrap": "6.7.0",
     "ember-changeset": "5.0.0",
