@@ -35,10 +35,10 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@babel/core": "^7.27.1",
-    "ember-cli-babel": "^8.2.0",
-    "ember-cli-htmlbars": "^7.0.0",
-    "ember-template-imports": "^4.3.0"
+    "@babel/core": "^7.29.0",
+    "ember-cli-babel": "^8.3.1",
+    "ember-cli-htmlbars": "^7.0.1",
+    "ember-template-imports": "^4.4.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
@@ -61,7 +61,7 @@
     "ember-changeset-validations": "5.0.0",
     "ember-cli": "6.12.0",
     "ember-cli-clean-css": "3.0.0",
-    "ember-cli-dependency-checker": "3.3.3",
+    "ember-cli-dependency-checker": "3.4.0",
     "ember-cli-deprecation-workflow": "4.0.1",
     "ember-cli-inject-live-reload": "2.1.0",
     "ember-cli-sri": "2.1.1",
@@ -97,7 +97,7 @@
     "ember-source": ">=3.28.0"
   },
   "engines": {
-    "node": "20.* || 22.* || >= 24"
+    "node": ">= 20.19"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
