@@ -97,8 +97,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(supports-color@10.2.2)
       ember-focus-trap:
-        specifier: 1.2.0
-        version: 1.2.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
+        specifier: 2.0.0
+        version: 2.0.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2)
       ember-load-initializers:
         specifier: 3.0.1
         version: 3.0.1(ember-source@6.12.0(@glimmer/component@2.1.1(supports-color@10.2.2))(rsvp@4.8.5)(supports-color@10.2.2))
@@ -2899,6 +2899,10 @@ packages:
   ember-focus-trap@1.2.0:
     resolution: {integrity: sha512-+/AkXjWF9Qtv6a3tSZQvzFTF+vSoSNuWVemN8kbp4d3MmHWnbXzv5brd9wmAFFlp4yYRr2be7bVhNVxzJMLEhw==}
 
+  ember-focus-trap@2.0.0:
+    resolution: {integrity: sha512-zGPvt934h08gxdemIZz29XRn4cdwn51UxlodKtDkiahGrEpiSQ6qH8nvXGwDhQvZsf8zGumnXqcmDYYA5oFomQ==}
+    engines: {node: '>= 22.*', pnpm: '>= 10'}
+
   ember-load-initializers@3.0.1:
     resolution: {integrity: sha512-qV3vxJKw5+7TVDdtdLPy8PhVsh58MlK8jwzqh5xeOwJPNP7o0+BlhvwoIlLYTPzGaHdfjEIFCgVSyMRGd74E1g==}
     engines: {node: '>= 18.*'}
@@ -3426,6 +3430,9 @@ packages:
 
   focus-trap@7.8.0:
     resolution: {integrity: sha512-/yNdlIkpWbM0ptxno3ONTuf+2g318kh2ez3KSeZN5dZ8YC6AAmgeWz+GasYYiBJPFaYcSAPeu4GfhUaChzIJXA==}
+
+  focus-trap@8.2.2:
+    resolution: {integrity: sha512-qV0g8hRYBqgACcFOH3f9wXc4zPKhr/0z9RI2a6ZijZ72EeBi4g8oBy8zAWuUR1TsMpOzwpUMFvjdasrC41Joug==}
 
   follow-redirects@1.16.0:
     resolution: {integrity: sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==}
@@ -9937,6 +9944,15 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  ember-focus-trap@2.0.0(@babel/core@7.29.7(supports-color@10.2.2))(supports-color@10.2.2):
+    dependencies:
+      '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
+      decorator-transforms: 2.4.0(@babel/core@7.29.7(supports-color@10.2.2))
+      focus-trap: 8.2.2
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
   ember-load-initializers@3.0.1(ember-source@6.12.0(@glimmer/component@2.1.1(supports-color@10.2.2))(rsvp@4.8.5)(supports-color@10.2.2)):
     dependencies:
       ember-source: 6.12.0(@glimmer/component@2.1.1(supports-color@10.2.2))(rsvp@4.8.5)(supports-color@10.2.2)
@@ -10740,6 +10756,10 @@ snapshots:
   flatted@3.4.4: {}
 
   focus-trap@7.8.0:
+    dependencies:
+      tabbable: 6.5.0
+
+  focus-trap@8.2.2:
     dependencies:
       tabbable: 6.5.0
 
