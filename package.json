@@ -35,14 +35,14 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^8.0.0",
     "ember-cli-babel": "^8.3.1",
     "ember-cli-htmlbars": "^7.0.1",
     "ember-template-imports": "^4.4.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.29.9",
-    "@babel/plugin-proposal-decorators": "7.29.7",
+    "@babel/eslint-parser": "8.0.7",
+    "@babel/plugin-proposal-decorators": "8.0.2",
     "@ember/optional-features": "3.0.0",
     "@ember/string": "4.0.1",
     "@ember/test-helpers": "5.5.2",
